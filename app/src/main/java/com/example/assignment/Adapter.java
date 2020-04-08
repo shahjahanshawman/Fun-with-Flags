@@ -1,5 +1,7 @@
 package com.example.assignment;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -17,24 +20,25 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     private static final String TAG = "MyAdapter";
     ArrayList<Countries> countries;
     private int[] images;
+    Context context;
 
 
-
-    public Adapter(ArrayList<Countries> myDataSet, int[] pics) {
-
+    public Adapter(Context ct, ArrayList<Countries> myDataSet, int[] pics) {
+        //had to use this context thing to get Onclick to work
+        context = ct;
         countries = myDataSet;
         images = pics;
 
     }
 
 
-
-    public static class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    public static class MyViewHolder extends RecyclerView.ViewHolder {
 
 
         TextView countryName;
         ImageView image;
         Button startQuiz;
+
 
         public MyViewHolder(View itemView) {
             super(itemView);
@@ -42,12 +46,6 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
             countryName = itemView.findViewById(R.id.country);
             image = itemView.findViewById(R.id.image);
             startQuiz = itemView.findViewById((R.id.startQuiz));
-            startQuiz.setOnClickListener(this);
-        }
-
-
-        @Override
-        public void onClick(View v) {
 
         }
     }
@@ -55,7 +53,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
     @NonNull
     @Override
     public Adapter.MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.row,parent,false);
+        LayoutInflater inflater = LayoutInflater.from(context);
+        View v = inflater.inflate(R.layout.row, parent, false);
         return new MyViewHolder(v);
     }
 
@@ -64,17 +63,21 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         final Countries country = countries.get(position);
 
         int image_id = images[position];
-        String name= country.getCountry();
+        String name = country.getCountry();
 
         holder.countryName.setText(country.getCountry());
         holder.image.setImageResource(image_id);
 
+        holder.startQuiz.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(context, quiz.class);
+                context.startActivity(intent);
+            }
+        });
+
     }
 
-
-
-
-   
 
     @Override
     public int getItemCount() {
