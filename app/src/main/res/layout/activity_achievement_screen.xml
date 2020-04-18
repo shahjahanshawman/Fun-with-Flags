@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AchievementScreen">
+
+    <TextView
+        android:id="@+id/p5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/p1"
+        app:layout_constraintTop_toTopOf="@+id/g5" />
+
+    <TextView
+        android:id="@+id/p3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/p1"
+        app:layout_constraintTop_toTopOf="@+id/g3" />
+
+    <TextView
+        android:id="@+id/g4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Game 4"
+        app:layout_constraintStart_toStartOf="@+id/points"
+        app:layout_constraintTop_toBottomOf="@+id/g3" />
+
+    <Button
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginRight="24dp"
+        android:text="Back"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/achievements"
+        android:layout_width="176dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="136dp"
+        android:text="Achievements"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/points"
+        android:layout_width="82dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="32dp"
+        android:text="Points"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/achievements"
+        app:layout_constraintTop_toBottomOf="@+id/achievements" />
+
+    <TextView
+        android:id="@+id/g1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="44dp"
+        android:text="Game 1"
+        app:layout_constraintStart_toStartOf="@+id/points"
+        app:layout_constraintTop_toBottomOf="@+id/points" />
+
+    <TextView
+        android:id="@+id/g2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="104dp"
+        android:text="Game 2"
+        app:layout_constraintStart_toStartOf="@+id/points"
+        app:layout_constraintTop_toBottomOf="@+id/points" />
+
+    <TextView
+        android:id="@+id/g3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Game 3"
+        app:layout_constraintStart_toStartOf="@+id/points"
+        app:layout_constraintTop_toBottomOf="@+id/g2" />
+
+    <TextView
+        android:id="@+id/g5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="Game 5"
+        app:layout_constraintStart_toStartOf="@+id/points"
+        app:layout_constraintTop_toBottomOf="@+id/g4" />
+
+    <TextView
+        android:id="@+id/p1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="68dp"
+        android:layout_marginLeft="68dp"
+        android:text="TextView"
+        app:layout_constraintStart_toEndOf="@+id/g1"
+        app:layout_constraintTop_toTopOf="@+id/g1" />
+
+    <TextView
+        android:id="@+id/p2"
+        android:layout_width="63dp"
+        android:layout_height="21dp"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/p1"
+        app:layout_constraintTop_toTopOf="@+id/g2" />
+
+    <TextView
+        android:id="@+id/p4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/p1"
+        app:layout_constraintTop_toTopOf="@+id/g4" />
+</androidx.constraintlayout.widget.ConstraintLayout>
