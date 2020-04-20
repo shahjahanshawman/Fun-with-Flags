@@ -9,6 +9,8 @@ import android.widget.Button;
 
 public class PlayScreen extends AppCompatActivity implements View.OnClickListener {
 
+    //play screen will act as the menu screen
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,7 @@ public class PlayScreen extends AppCompatActivity implements View.OnClickListene
 
     }
 
+    // switch for onclick buttons
     @Override
     public void onClick(View v) {
 
@@ -42,9 +45,14 @@ public class PlayScreen extends AppCompatActivity implements View.OnClickListene
                 startActivity(playIntent);
                 break;
 
-                case R.id.helpBtn:
+            case R.id.helpBtn:
                 Intent btnIntent = new Intent(this, helpScreen.class);
                 startActivity(btnIntent);
+                break;
+
+            case R.id.achBtn:
+                Intent achIntent = new Intent(this, AchievementScreen.class);
+                startActivity(achIntent);
                 break;
 
             default:
