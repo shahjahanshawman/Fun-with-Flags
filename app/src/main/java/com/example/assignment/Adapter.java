@@ -63,9 +63,9 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         final Countries country = countries.get(position);
 
         int image_id = images[position];
-        String name = country.getCountry();
+        //String name = country.getCountry();
 
-        holder.countryName.setText(country.getCountry());
+       // holder.countryName.setText(country.getCountry());
         holder.image.setImageResource(image_id);
 
         holder.startQuiz.setOnClickListener(new View.OnClickListener() {
