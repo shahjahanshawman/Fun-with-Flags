@@ -9,8 +9,6 @@ public interface FlagAPI {
         @GET("rest/v2/all")
         Call<CountryResponse> getAllCountries();
 
-        @GET("data/{flag}")
-        Call<Integer> getFlag(@Path("flag") String flag);
 
 }
 //data/afg.svg
