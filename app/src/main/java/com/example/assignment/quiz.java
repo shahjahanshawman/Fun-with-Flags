@@ -41,11 +41,14 @@ public class quiz extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quiz);
+
         countries = new ArrayList<>();
+        //adds countries to list
         for(int i=0;i<new CountryDatabase().answers.length;i++){
             countries.add(new Countries(new CountryDatabase().answers[i], new CountryDatabase().flags[i]));
         }
 
+        //shuffles the list
         Collections.shuffle(countries);
 
 
@@ -57,6 +60,8 @@ public class quiz extends AppCompatActivity {
          answer4 = findViewById(R.id.country4);
          result = findViewById(R.id.result);
          result.setVisibility(View.GONE);
+
+         //sets the flag and button- turn keeps count on the list
          setQuestion(turn);
 
 
@@ -64,10 +69,11 @@ public class quiz extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(answer1.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
-                    result.setText("Correct!");
+                    result.setText("Correct!");    //checks for correct answer
                     result.setVisibility(View.VISIBLE);
                     result.setTextColor(0xFF43D110);
 
+                    //checks if end of list
                     if(turn<countries.size()){
                         turn++;
                         setQuestion(turn);
@@ -79,6 +85,7 @@ public class quiz extends AppCompatActivity {
 //                        finish();
                     }
                 } else {
+                    //output for wrong answer
                     result.setText("Wrong! You Lost!");
                     result.setTextColor(0xFFD11010);
                     result.setVisibility(View.VISIBLE);
@@ -186,13 +193,11 @@ public class quiz extends AppCompatActivity {
 
     private void setQuestion(int number) {
         Log.d(TAG, countries.get(number-1).getName());
+        //sets image
         fg.setImageResource(countries.get(number-1).getFlag());
-//        fg.setImageResource(R.drawable.;
-//        Glide.with(this)
-//                .load((countries.get(number-1).getFlag()))
-//                .into(fg);
 
 
+        //finds a number where the correct answer will be put
         int correctAnswer= randomGenerator.nextInt(4)+1;
 
         int firstButton = number-1;
@@ -202,11 +207,12 @@ public class quiz extends AppCompatActivity {
 
         switch (correctAnswer){
             case 1:
+                //finds a country for first button
                 answer1.setText(countries.get(firstButton).getName());
 
                 do{
                     secondButton= randomGenerator.nextInt(countries.size());
-                } while (secondButton==firstButton);
+                } while (secondButton==firstButton); //checks two countries are not the same
 
                 do{
                     thirdButton= randomGenerator.nextInt(countries.size());
