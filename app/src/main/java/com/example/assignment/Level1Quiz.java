@@ -58,7 +58,7 @@ public class Level1Quiz extends AppCompatActivity {
          answer3 = findViewById(R.id.country3);
          answer4 = findViewById(R.id.country4);
          result = findViewById(R.id.result);
-         result.setVisibility(View.GONE);
+         //result.setVisibility(View.GONE);
 
          //sets the flag and button- turn keeps count on the list
          setQuestion(turn);
@@ -69,7 +69,7 @@ public class Level1Quiz extends AppCompatActivity {
             public void onClick(View v) {
                 if(answer1.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
                     result.setText("Correct!");    //checks for correct answer
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     result.setTextColor(0xFF43D110);
                     lastScore++;
                     //checks if end of list
@@ -78,7 +78,7 @@ public class Level1Quiz extends AppCompatActivity {
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        result.setVisibility(View.VISIBLE);
+                        //result.setVisibility(View.VISIBLE);
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
@@ -91,7 +91,7 @@ public class Level1Quiz extends AppCompatActivity {
                     //output for wrong answer
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                    result.setVisibility(View.VISIBLE);
+                   // result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
 
@@ -105,7 +105,7 @@ public class Level1Quiz extends AppCompatActivity {
                 if(answer2.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     lastScore++;
                     if(turn<10){
                         turn++;
@@ -113,7 +113,7 @@ public class Level1Quiz extends AppCompatActivity {
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        result.setVisibility(View.VISIBLE);
+                        //result.setVisibility(View.VISIBLE);
 //                        setLastScore(lastScore);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
@@ -123,7 +123,7 @@ public class Level1Quiz extends AppCompatActivity {
                 } else {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
 
@@ -139,7 +139,7 @@ public class Level1Quiz extends AppCompatActivity {
                 if(answer3.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     lastScore++;
                     if(turn<10){
                         turn++;
@@ -147,7 +147,7 @@ public class Level1Quiz extends AppCompatActivity {
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        result.setVisibility(View.VISIBLE);
+                        //result.setVisibility(View.VISIBLE);
 //                        setLastScore(lastScore);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
@@ -156,7 +156,7 @@ public class Level1Quiz extends AppCompatActivity {
                 } else {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
                     //finish();
@@ -172,7 +172,7 @@ public class Level1Quiz extends AppCompatActivity {
                 if(answer4.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     lastScore++;
                     if(turn<10){
                         turn++;
@@ -180,7 +180,7 @@ public class Level1Quiz extends AppCompatActivity {
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        result.setVisibility(View.VISIBLE);
+                        //result.setVisibility(View.VISIBLE);
 //                        setLastScore(lastScore);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
@@ -189,7 +189,7 @@ public class Level1Quiz extends AppCompatActivity {
                 } else {
                     result.setText("Wrong! You Lost!");
                     result.setTextColor(0xFFD11010);
-                    result.setVisibility(View.VISIBLE);
+                   // result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
 
