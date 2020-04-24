@@ -4,53 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     tools:context=".quiz">
 
 
     <Button
         android:id="@+id/country1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="@+id/flag"
-        app:layout_constraintTop_toTopOf="@+id/country2" />
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="14dp"
+        android:text="country1"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/country2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/result" />
 
     <Button
         android:id="@+id/country2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="160dp"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/flag"
-        app:layout_constraintTop_toBottomOf="@+id/flag" />
-
-    <Button
-        android:id="@+id/country3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:text="Button"
-        app:layout_constraintStart_toStartOf="@+id/flag"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="14dp"
+        android:text="country2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/country3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/country1" />
 
     <Button
+        android:id="@+id/country3"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="14dp"
+        android:text="country3"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/country4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country2" />
+
+    <Button
         android:id="@+id/country4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Button"
-        app:layout_constraintEnd_toEndOf="@+id/flag"
-        app:layout_constraintTop_toTopOf="@+id/country3" />
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="25dp"
+        android:text="country4"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/country3" />
 
     <TextView
         android:id="@+id/result"
         android:layout_width="272dp"
         android:layout_height="46dp"
-        android:layout_marginTop="60dp"
-        android:text="TextView"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/comfortaa"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/country1"
         app:layout_constraintEnd_toEndOf="@+id/flag"
-        app:layout_constraintHorizontal_bias="0.583"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="@+id/flag"
         app:layout_constraintTop_toBottomOf="@+id/flag" />
 
@@ -58,8 +80,10 @@
         android:id="@+id/flag"
         android:layout_width="308dp"
         android:layout_height="193dp"
-        android:layout_marginStart="48dp"
+        android:layout_marginStart="60dp"
         android:layout_marginTop="104dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@mipmap/ic_launcher" />

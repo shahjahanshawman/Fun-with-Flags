@@ -56,7 +56,7 @@ public class quiz extends AppCompatActivity {
          answer3 = findViewById(R.id.country3);
          answer4 = findViewById(R.id.country4);
          result = findViewById(R.id.result);
-         result.setVisibility(View.GONE);
+         //result.setVisibility(View.GONE);
          setQuestion(turn);
 
 
@@ -65,7 +65,7 @@ public class quiz extends AppCompatActivity {
             public void onClick(View v) {
                 if(answer1.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
                     result.setText("Correct!");
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     result.setTextColor(0xFF43D110);
 
                     if(turn<countries.size()){
@@ -73,15 +73,15 @@ public class quiz extends AppCompatActivity {
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        result.setVisibility(View.VISIBLE);
+                        //result.setVisibility(View.VISIBLE);
                         result.setTextColor(0xFF43D110);
 
 //                        finish();
                     }
                 } else {
-                    result.setText("Wrong! You Lost!");
+                    result.setText("Incorrect!");
                     result.setTextColor(0xFFD11010);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
 //                    finish();
@@ -95,21 +95,21 @@ public class quiz extends AppCompatActivity {
                 if(answer2.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     if(turn<countries.size()){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        result.setVisibility(View.VISIBLE);
+                        //result.setVisibility(View.VISIBLE);
 
 //                        finish();
                     }
                 } else {
-                    result.setText("Wrong! You Lost!");
+                    result.setText("Incorrect!");
                     result.setTextColor(0xFFD11010);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
 //                    finish();
@@ -125,21 +125,21 @@ public class quiz extends AppCompatActivity {
                 if(answer3.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     if(turn<countries.size()){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        result.setVisibility(View.VISIBLE);
+                       // result.setVisibility(View.VISIBLE);
 
 //                        finish();
                     }
                 } else {
-                    result.setText("Wrong! You Lost!");
+                    result.setText("Incorrect!");
                     result.setTextColor(0xFFD11010);
-                    result.setVisibility(View.VISIBLE);
+                    //result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
                     //finish();
@@ -155,21 +155,21 @@ public class quiz extends AppCompatActivity {
                 if(answer4.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    result.setVisibility(View.VISIBLE);
+                   // result.setVisibility(View.VISIBLE);
                     if(turn<countries.size()){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        result.setVisibility(View.VISIBLE);
+                      //  result.setVisibility(View.VISIBLE);
 
 //                        finish();
                     }
                 } else {
-                    result.setText("Wrong! You Lost!");
+                    result.setText("Incorrect!");
                     result.setTextColor(0xFFD11010);
-                    result.setVisibility(View.VISIBLE);
+                   // result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
                     //finish();

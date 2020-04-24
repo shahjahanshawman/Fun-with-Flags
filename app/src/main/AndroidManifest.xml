@@ -9,21 +9,23 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AchievementScreen"></activity>
+        <activity android:name=".AchievementScreen" />
         <activity android:name=".helpScreen" />
         <activity android:name=".selectLevel" />
         <activity android:name=".PlayScreen" />
-        <activity
-            android:name=".quiz"
-            android:label="Quiz"
-            android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".quiz" />
+        <activity android:name=".MainActivity"
+            android:theme="@style/splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />

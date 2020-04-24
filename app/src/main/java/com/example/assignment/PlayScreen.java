@@ -28,9 +28,6 @@ public class PlayScreen extends AppCompatActivity implements View.OnClickListene
         Button help = findViewById(R.id.helpBtn);
         help.setOnClickListener(this);
 
-        Button options = findViewById(R.id.optBtn);
-        options.setOnClickListener(this);
-
 
     }
 
