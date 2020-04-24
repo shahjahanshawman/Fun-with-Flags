@@ -11,16 +11,17 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="372dp"
-        android:layout_height="457dp"
+        android:layout_width="366dp"
+        android:layout_height="572dp"
         android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="56dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
+        android:layout_marginBottom="56dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.473"
+        app:layout_constraintHorizontal_bias="0.48"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.489"
         app:srcCompat="@drawable/logo" />
 </androidx.constraintlayout.widget.ConstraintLayout>
