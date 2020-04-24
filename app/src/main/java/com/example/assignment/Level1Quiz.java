@@ -1,9 +1,9 @@
 package com.example.assignment;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.room.Room;
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,45 +12,46 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 import java.util.Random;
+import java.util.SplittableRandom;
 
-import retrofit2.Call;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
-
-public class quiz extends AppCompatActivity {
+public class Level1Quiz extends AppCompatActivity {
     private static final String TAG = "quiz";
     private Adapter mAdapter;
     List<Countries> countries;
     private Random randomGenerator=  new Random();
+    private AchievementDatabase achievementDatabase;
     ImageView fg;
     Button answer1, answer2, answer3, answer4;
     TextView result;
     int turn = 1;
+    int lastScore;
+    List<Achievement> scores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quiz);
+        setContentView(R.layout.activity_level1_quiz);
 
         countries = new ArrayList<>();
         //adds countries to list
         for(int i=0;i<new CountryDatabase().answers.length;i++){
-            countries.add(new Countries(new CountryDatabase().answers[i], new CountryDatabase().flags[i]));
+            if( new CountryDatabase().level[i]==1){
+                countries.add(new Countries(new CountryDatabase().answers[i], new CountryDatabase().flags[i],1));
+            }
         }
+
 
         //shuffles the list
         Collections.shuffle(countries);
 
+        achievementDatabase = Room.databaseBuilder(getApplicationContext(), AchievementDatabase.class, "myDB")
+                .build();
 
          fg = findViewById(R.id.flag);
 
@@ -72,26 +73,30 @@ public class quiz extends AppCompatActivity {
                     result.setText("Correct!");    //checks for correct answer
                     result.setVisibility(View.VISIBLE);
                     result.setTextColor(0xFF43D110);
-
+                    lastScore++;
                     //checks if end of list
-                    if(turn<countries.size()){
+                    if(turn<10){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
                         result.setVisibility(View.VISIBLE);
                         result.setTextColor(0xFF43D110);
+                        new insertScore().execute();
+                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        startActivity(seeScore);
+                        //setLastScore(lastScore);
 
-//                        finish();
+
                     }
                 } else {
                     //output for wrong answer
-                    result.setText("Wrong! You Lost!");
+                    result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
                     result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
-//                    finish();
+
                 }
             }
         });
@@ -103,23 +108,27 @@ public class quiz extends AppCompatActivity {
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
                     result.setVisibility(View.VISIBLE);
-                    if(turn<countries.size()){
+                    lastScore++;
+                    if(turn<10){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
                         result.setVisibility(View.VISIBLE);
+//                        setLastScore(lastScore);
+                        new insertScore().execute();
+                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        startActivity(seeScore);
 
-//                        finish();
                     }
                 } else {
-                    result.setText("Wrong! You Lost!");
+                    result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
                     result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
-//                    finish();
+
 
                 }
             }
@@ -133,18 +142,21 @@ public class quiz extends AppCompatActivity {
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
                     result.setVisibility(View.VISIBLE);
-                    if(turn<countries.size()){
+                    lastScore++;
+                    if(turn<10){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
                         result.setVisibility(View.VISIBLE);
-
-//                        finish();
+//                        setLastScore(lastScore);
+                        new insertScore().execute();
+                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        startActivity(seeScore);
                     }
                 } else {
-                    result.setText("Wrong! You Lost!");
+                    result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
                     result.setVisibility(View.VISIBLE);
                     turn++;
@@ -163,15 +175,18 @@ public class quiz extends AppCompatActivity {
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
                     result.setVisibility(View.VISIBLE);
-                    if(turn<countries.size()){
+                    lastScore++;
+                    if(turn<10){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
                         result.setVisibility(View.VISIBLE);
-
-//                        finish();
+//                        setLastScore(lastScore);
+                        new insertScore().execute();
+                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        startActivity(seeScore);
                     }
                 } else {
                     result.setText("Wrong! You Lost!");
@@ -179,7 +194,7 @@ public class quiz extends AppCompatActivity {
                     result.setVisibility(View.VISIBLE);
                     turn++;
                     setQuestion(turn);
-                    //finish();
+
 
                 }
             }
@@ -286,6 +301,48 @@ public class quiz extends AppCompatActivity {
                 answer1.setText(countries.get(fourthButton).getName());
                 break;
 
+        }
+    }
+
+    private void setLastScore(int number) {
+
+
+
+    }
+
+    private class insertScore  extends AsyncTask<Void,Integer,Integer> {
+
+
+        @Override
+        protected Integer doInBackground(Void... voids) {
+//            setLastScore(lastScore);
+            scores = achievementDatabase.achievementDAO().getScores();
+
+            String score = Integer.toString(lastScore);
+            score = score + "/10";
+
+            int count = scores.size();
+            if (count < 5) {
+                Achievement toAdd = new Achievement(score, count + 1);
+
+                scores.add(0, toAdd);
+                achievementDatabase.achievementDAO().deleteScores();
+                achievementDatabase.achievementDAO().insertAll(scores);
+            } else {
+
+                scores.remove(scores.size() - 1);
+                Achievement toAdd = new Achievement(score, count + 1);
+                scores.add(0, toAdd);
+                achievementDatabase.achievementDAO().deleteScores();
+                achievementDatabase.achievementDAO().insertAll(scores);
+
+            }
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Integer integer) {
+            super.onPostExecute(integer);
         }
     }
 }

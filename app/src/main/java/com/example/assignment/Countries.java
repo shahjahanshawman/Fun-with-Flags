@@ -9,10 +9,12 @@ public class Countries {
 
     String name;
     int flag;
+    int level;
 
-    public Countries(String name, int flag){
+    public Countries(String name, int flag, int level){
         this.name=name;
         this.flag=flag;
+        this.level = level;
     }
 
     public String getName() {
@@ -26,11 +28,22 @@ public class Countries {
     }
 
     public void setName(String name) {
+
         this.name = name;
     }
 
     public void setFlag(int flag) {
 
         this.flag = flag;
+    }
+
+    public int getLevel() {
+
+        return level;
+    }
+
+    public void setLevel(int level) {
+
+        this.level = level;
     }
 }

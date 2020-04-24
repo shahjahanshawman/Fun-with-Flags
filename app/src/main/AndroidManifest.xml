@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.assignment">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -9,12 +12,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AchievementScreen"></activity>
+        <activity android:name=".Level3Quiz"></activity>
+        <activity android:name=".Level2Quiz" />
+        <activity android:name=".AchievementScreen" />
         <activity android:name=".helpScreen" />
         <activity android:name=".selectLevel" />
         <activity android:name=".PlayScreen" />
         <activity
-            android:name=".quiz"
+            android:name=".Level1Quiz"
             android:label="Quiz"
             android:parentActivityName=".MainActivity" />
         <activity android:name=".MainActivity">
@@ -25,7 +30,5 @@
             </intent-filter>
         </activity>
     </application>
-    <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
 </manifest>

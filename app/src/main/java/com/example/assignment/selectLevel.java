@@ -35,8 +35,16 @@ public class selectLevel extends AppCompatActivity implements View.OnClickListen
                 break;
 
             case R.id.level1:
-                Intent level1 = new Intent(this, quiz.class);
+                Intent level1 = new Intent(this, Level1Quiz.class);
                 startActivity(level1);
+                break;
+            case R.id.level2:
+                Intent level2 = new Intent(this, Level2Quiz.class);
+                startActivity(level2);
+                break;
+            case R.id.level3:
+                Intent level3 = new Intent(this, Level3Quiz.class);
+                startActivity(level3);
                 break;
 
             default:
