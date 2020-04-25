@@ -15,7 +15,6 @@ public class CountryInfoFragment extends Fragment {
 
     private ImageView flag;
     private TextView name;
-    private TextView level;
     private Button search;
     private Countries newCountry;
 
@@ -56,7 +55,6 @@ public class CountryInfoFragment extends Fragment {
 
         flag = v.findViewById(R.id.flag);
         name = v.findViewById(R.id.cname);
-        level = v.findViewById(R.id.clevel);
         search = v.findViewById(R.id.search);
 
         boolean wide = false;
@@ -74,7 +72,6 @@ public class CountryInfoFragment extends Fragment {
 
         flag.setImageResource(newCountry.getFlag());
         name.setText(newCountry.getAnswers());
-        level.setText(Integer.toString(newCountry.getLevel()));
 
         search.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
