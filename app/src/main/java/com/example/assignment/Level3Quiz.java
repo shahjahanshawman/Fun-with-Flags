@@ -19,7 +19,7 @@ import java.util.Random;
 
 public class Level3Quiz extends AppCompatActivity {
     private static final String TAG = "quiz";
-    private Adapter mAdapter;
+    private CountryAdapter mCountryAdapter;
     List<Countries> countries;
     private Random randomGenerator=  new Random();
     private AchievementDatabase achievementDatabase;
@@ -67,7 +67,7 @@ public class Level3Quiz extends AppCompatActivity {
         answer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(answer1.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
+                if(answer1.getText().toString().equalsIgnoreCase(countries.get(turn-1).getAnswers())){
                     result.setText("Correct!");    //checks for correct answer
                     //result.setVisibility(View.VISIBLE);
                     result.setTextColor(0xFF43D110);
@@ -116,7 +116,7 @@ public class Level3Quiz extends AppCompatActivity {
         answer2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(answer2.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
+                if(answer2.getText().toString().equalsIgnoreCase(countries.get(turn-1).getAnswers())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
                     //result.setVisibility(View.VISIBLE);
@@ -164,7 +164,7 @@ public class Level3Quiz extends AppCompatActivity {
         answer3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(answer3.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
+                if(answer3.getText().toString().equalsIgnoreCase(countries.get(turn-1).getAnswers())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
                     //result.setVisibility(View.VISIBLE);
@@ -211,7 +211,7 @@ public class Level3Quiz extends AppCompatActivity {
         answer4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(answer4.getText().toString().equalsIgnoreCase(countries.get(turn-1).getName())){
+                if(answer4.getText().toString().equalsIgnoreCase(countries.get(turn-1).getAnswers())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
                     //result.setVisibility(View.VISIBLE);
@@ -259,7 +259,7 @@ public class Level3Quiz extends AppCompatActivity {
 
 
     private void setQuestion(int number) {
-        Log.d(TAG, countries.get(number-1).getName());
+        Log.d(TAG, countries.get(number-1).getAnswers());
         //sets image
         fg.setImageResource(countries.get(number-1).getFlag());
 
@@ -275,7 +275,7 @@ public class Level3Quiz extends AppCompatActivity {
         switch (correctAnswer){
             case 1:
                 //finds a country for first button
-                answer1.setText(countries.get(firstButton).getName());
+                answer1.setText(countries.get(firstButton).getAnswers());
 
                 do{
                     secondButton= randomGenerator.nextInt(countries.size());
@@ -289,14 +289,14 @@ public class Level3Quiz extends AppCompatActivity {
                     fourthButton= randomGenerator.nextInt(countries.size());
                 } while (fourthButton==firstButton || fourthButton==secondButton|| fourthButton==thirdButton) ;
 
-                answer2.setText(countries.get(secondButton).getName());
-                answer3.setText(countries.get(thirdButton).getName());
-                answer4.setText(countries.get(fourthButton).getName());
+                answer2.setText(countries.get(secondButton).getAnswers());
+                answer3.setText(countries.get(thirdButton).getAnswers());
+                answer4.setText(countries.get(fourthButton).getAnswers());
                 break;
 
             case 2:
 
-                answer2.setText(countries.get(firstButton).getName());
+                answer2.setText(countries.get(firstButton).getAnswers());
 
                 do{
                     secondButton= randomGenerator.nextInt(countries.size());
@@ -310,12 +310,12 @@ public class Level3Quiz extends AppCompatActivity {
                     fourthButton= randomGenerator.nextInt(countries.size());
                 } while (fourthButton==firstButton || fourthButton==secondButton|| fourthButton==thirdButton) ;
 
-                answer1.setText(countries.get(secondButton).getName());
-                answer3.setText(countries.get(thirdButton).getName());
-                answer4.setText(countries.get(fourthButton).getName());
+                answer1.setText(countries.get(secondButton).getAnswers());
+                answer3.setText(countries.get(thirdButton).getAnswers());
+                answer4.setText(countries.get(fourthButton).getAnswers());
                 break;
             case 3:
-                answer3.setText(countries.get(firstButton).getName());
+                answer3.setText(countries.get(firstButton).getAnswers());
 
                 do{
                     secondButton= randomGenerator.nextInt(countries.size());
@@ -329,12 +329,12 @@ public class Level3Quiz extends AppCompatActivity {
                     fourthButton= randomGenerator.nextInt(countries.size());
                 } while (fourthButton==firstButton || fourthButton==secondButton|| fourthButton==thirdButton) ;
 
-                answer2.setText(countries.get(secondButton).getName());
-                answer1.setText(countries.get(thirdButton).getName());
-                answer4.setText(countries.get(fourthButton).getName());
+                answer2.setText(countries.get(secondButton).getAnswers());
+                answer1.setText(countries.get(thirdButton).getAnswers());
+                answer4.setText(countries.get(fourthButton).getAnswers());
                 break;
             case 4:
-                answer4.setText(countries.get(firstButton).getName());
+                answer4.setText(countries.get(firstButton).getAnswers());
 
                 do{
                     secondButton= randomGenerator.nextInt(countries.size());
@@ -348,9 +348,9 @@ public class Level3Quiz extends AppCompatActivity {
                     fourthButton= randomGenerator.nextInt(countries.size());
                 } while (fourthButton==firstButton || fourthButton==secondButton|| fourthButton==thirdButton) ;
 
-                answer2.setText(countries.get(secondButton).getName());
-                answer3.setText(countries.get(thirdButton).getName());
-                answer1.setText(countries.get(fourthButton).getName());
+                answer2.setText(countries.get(secondButton).getAnswers());
+                answer3.setText(countries.get(thirdButton).getAnswers());
+                answer1.setText(countries.get(fourthButton).getAnswers());
                 break;
 
         }

@@ -52,6 +52,11 @@ public class PlayScreen extends AppCompatActivity implements View.OnClickListene
                 startActivity(achIntent);
                 break;
 
+            case R.id.lrnBtn:
+                Intent lrnIntent = new Intent(this, learnScreen.class);
+                startActivity(lrnIntent);
+                break;
+
             default:
                 break;
         }

@@ -8,7 +8,7 @@
     tools:context=".selectLevel">
 
     <TextView
-        android:id="@+id/level"
+        android:id="@+id/clevel"
         android:layout_width="303dp"
         android:layout_height="87dp"
         android:layout_marginStart="104dp"
@@ -31,8 +31,8 @@
         android:layout_marginTop="260dp"
         android:text="Level 1"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@+id/level"
-        app:layout_constraintStart_toStartOf="@+id/level"
+        app:layout_constraintEnd_toEndOf="@+id/clevel"
+        app:layout_constraintStart_toStartOf="@+id/clevel"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button

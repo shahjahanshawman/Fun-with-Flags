@@ -1,25 +1,25 @@
 
 package com.example.assignment;
 
-import java.util.List;
-import com.google.gson.annotations.Expose;
-import com.google.gson.annotations.SerializedName;
+import android.graphics.drawable.Drawable;
+
+import java.util.ArrayList;
 
 public class Countries {
 
-    String name;
+    String answers;
     int flag;
     int level;
 
-    public Countries(String name, int flag, int level){
-        this.name=name;
-        this.flag=flag;
+    public Countries(String answers, int flag, int level){
+        this.answers = answers;
+        this.flag = flag;
         this.level = level;
     }
 
-    public String getName() {
+    public String getAnswers() {
 
-        return name;
+        return answers;
     }
 
     public int getFlag() {
@@ -27,9 +27,9 @@ public class Countries {
         return flag;
     }
 
-    public void setName(String name) {
+    public void setAnswers(String answers) {
 
-        this.name = name;
+        this.answers = answers;
     }
 
     public void setFlag(int flag) {
@@ -45,5 +45,15 @@ public class Countries {
     public void setLevel(int level) {
 
         this.level = level;
+    }
+
+    public static ArrayList<Countries> getCountries() {
+        ArrayList<Countries> countries = new ArrayList<>();
+
+        //adds countries to list
+        for(int i=0;i<new CountryDatabase().answers.length;i++){
+            countries.add(new Countries(new CountryDatabase().answers[i], new CountryDatabase().flags[i], new CountryDatabase().level[i]));
+        }
+        return countries;
     }
 }
