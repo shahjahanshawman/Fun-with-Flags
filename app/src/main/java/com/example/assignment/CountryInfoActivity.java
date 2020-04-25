@@ -8,20 +8,34 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.gson.Gson;
+
 public class CountryInfoActivity extends AppCompatActivity {
 
+    Countries toDisplay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_country_info);
+        String jsonMyObject;
+        Intent i = getIntent();
+        if(i.getExtras() != null) {
+            Bundle extras = i.getExtras();
+            jsonMyObject = extras.getString("country");
+            toDisplay = new Gson().fromJson(jsonMyObject, Countries.class);
 
-        Intent intent = getIntent();
+        }
 
-        int position = intent.getIntExtra(learnScreen.EXTRA_MESSAGE,0);
+        //int position = intent.getIntExtra(learnScreen.EXTRA_MESSAGE,0);
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
         Fragment fragment = new CountryInfoFragment();
-        getSupportFragmentManager().beginTransaction().replace(R.id.scrollActivity, fragment).commit();
+        Bundle bundle = new Bundle();
+        bundle.putSerializable("country", toDisplay);
+        fragment.setArguments(bundle);
+        transaction.replace(R.id.scrollActivity, fragment);
+        transaction.commit();
+        //getSupportFragmentManager().beginTransaction().replace(R.id.scrollActivity, fragment).commit();
     }
 }

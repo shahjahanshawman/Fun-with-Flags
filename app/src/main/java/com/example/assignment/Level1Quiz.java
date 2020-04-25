@@ -3,6 +3,7 @@ package com.example.assignment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,9 @@ public class Level1Quiz extends AppCompatActivity {
     int turn = 1;
     int lastScore;
     List<Achievement> scores;
+    CountDownTimer countDownTimer;
+    long timeLeftInMilliSeconds = 120000;
+    boolean timerRunning;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,10 +64,12 @@ public class Level1Quiz extends AppCompatActivity {
          result = findViewById(R.id.L2result);
          timer = findViewById(R.id.timer);
 
-
+            
+//        setTimer();
+//         countDownTimer.start();
          //sets the flag and button- turn keeps count on the list
-         setQuestion(turn);
-
+        setQuestion(turn);
+        
 
         answer1.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -256,7 +262,60 @@ public class Level1Quiz extends AppCompatActivity {
 
     }
 
-
+//    private void setTimer() {
+//        if (timerRunning) {
+//            stopTimer();
+//        } else{
+//            startTimer();
+//        }
+////        countDownTimer = new CountDownTimer(1200000,1000) {
+////            @Override
+////            public void onTick(long millisUntilFinished) {
+////                timer.setText((int) (millisUntilFinished/1000));
+////            }
+////
+////            @Override
+////            public void onFinish() {
+////                timer.setText("Time's Up!");
+////                timer.setTextColor(0xFF43D110);
+////            }
+////        };
+//    }
+//
+//    private void stopTimer() {
+//        countDownTimer.cancel();
+//        timerRunning=false;
+//    }
+//
+//    private void startTimer() {
+//        countDownTimer = new CountDownTimer(timeLeftInMilliSeconds,1000 ) {
+//            @Override
+//            public void onTick(long l) {
+//                timeLeftInMilliSeconds =l;
+//                updateTimer();
+//            }
+//
+//            @Override
+//            public void onFinish() {
+//
+//            }
+//        }.start();
+//        timerRunning=true;
+//    }
+//
+//    public void updateTimer() {
+//        int min = (int) timeLeftInMilliSeconds/60000;
+//        int sec = (int)  timeLeftInMilliSeconds%60000/1000;
+//
+//        String timeLeft = ""+min;
+//        timeLeft+=":";
+//        if (sec < 10) timeLeft+=0;
+//        timeLeft+=sec;
+//        timer.setText(timeLeft);
+//
+//
+//
+//    }
 
 
     private void setQuestion(int number) {

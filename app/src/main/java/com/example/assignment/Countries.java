@@ -3,9 +3,10 @@ package com.example.assignment;
 
 import android.graphics.drawable.Drawable;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Countries {
+public class Countries implements Serializable {
 
     String answers;
     int flag;
