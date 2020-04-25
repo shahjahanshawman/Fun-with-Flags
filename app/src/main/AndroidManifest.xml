@@ -12,7 +12,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Level3Quiz"></activity>
+        <activity android:name=".CountryInfoActivity"></activity>
+        <activity android:name=".CountryInfoFragment" />
+        <activity android:name=".learnScreen" />
+        <activity android:name=".Level3Quiz" />
         <activity android:name=".Level2Quiz" />
         <activity android:name=".AchievementScreen" />
         <activity android:name=".helpScreen" />
@@ -22,7 +25,8 @@
             android:name=".Level1Quiz"
             android:label="Quiz"
             android:parentActivityName=".MainActivity" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:theme="@style/splash">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

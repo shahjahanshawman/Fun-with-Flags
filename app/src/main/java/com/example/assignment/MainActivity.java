@@ -11,7 +11,7 @@ import android.util.Log;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
-    //set timer 3000 = 2 seconds
+    //set timer 2000 = 2 seconds
     private static int SPLASH_SCREEN = 2000;
 
 
