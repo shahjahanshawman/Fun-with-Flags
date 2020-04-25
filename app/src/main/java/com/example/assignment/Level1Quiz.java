@@ -51,13 +51,13 @@ public class Level1Quiz extends AppCompatActivity {
         achievementDatabase = Room.databaseBuilder(getApplicationContext(), AchievementDatabase.class, "myDB")
                 .build();
 
-         fg = findViewById(R.id.flag);
+         fg = findViewById(R.id.L2flag);
 
-         answer1 = findViewById(R.id.country1);
-         answer2 = findViewById(R.id.country2);
-         answer3 = findViewById(R.id.country3);
-         answer4 = findViewById(R.id.country4);
-         result = findViewById(R.id.result);
+         answer1 = findViewById(R.id.L2country1);
+         answer2 = findViewById(R.id.L2country2);
+         answer3 = findViewById(R.id.L2country3);
+         answer4 = findViewById(R.id.L2country4);
+         result = findViewById(R.id.L2result);
          //result.setVisibility(View.GONE);
 
          //sets the flag and button- turn keeps count on the list
@@ -92,8 +92,22 @@ public class Level1Quiz extends AppCompatActivity {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
                    // result.setVisibility(View.VISIBLE);
-                    turn++;
-                    setQuestion(turn);
+//                    turn++;
+//                    setQuestion(turn);
+                    if(turn<10){
+                        turn++;
+                        setQuestion(turn);
+                    } else {
+                        result.setText("Game Over!");
+                        //result.setVisibility(View.VISIBLE);
+                        result.setTextColor(0xFF43D110);
+                        new insertScore().execute();
+                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        startActivity(seeScore);
+                        //setLastScore(lastScore);
+
+
+                    }
 
                 }
             }
@@ -124,8 +138,22 @@ public class Level1Quiz extends AppCompatActivity {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
                     //result.setVisibility(View.VISIBLE);
-                    turn++;
-                    setQuestion(turn);
+//                    turn++;
+//                    setQuestion(turn);
+                    if(turn<10){
+                        turn++;
+                        setQuestion(turn);
+                    } else {
+                        result.setText("Game Over!");
+                        //result.setVisibility(View.VISIBLE);
+                        result.setTextColor(0xFF43D110);
+                        new insertScore().execute();
+                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        startActivity(seeScore);
+                        //setLastScore(lastScore);
+
+
+                    }
 
 
                 }
@@ -157,8 +185,22 @@ public class Level1Quiz extends AppCompatActivity {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
                     //result.setVisibility(View.VISIBLE);
-                    turn++;
-                    setQuestion(turn);
+//                    turn++;
+//                    setQuestion(turn);
+                    if(turn<10){
+                        turn++;
+                        setQuestion(turn);
+                    } else {
+                        result.setText("Game Over!");
+                        //result.setVisibility(View.VISIBLE);
+                        result.setTextColor(0xFF43D110);
+                        new insertScore().execute();
+                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        startActivity(seeScore);
+                        //setLastScore(lastScore);
+
+
+                    }
                     //finish();
 
                 }
@@ -180,18 +222,30 @@ public class Level1Quiz extends AppCompatActivity {
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        //result.setVisibility(View.VISIBLE);
-//                        setLastScore(lastScore);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
                     }
                 } else {
-                    result.setText("Wrong! You Lost!");
+                    result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
                    // result.setVisibility(View.VISIBLE);
-                    turn++;
-                    setQuestion(turn);
+//                    turn++;
+//                    setQuestion(turn);
+                    if(turn<10){
+                        turn++;
+                        setQuestion(turn);
+                    } else {
+                        result.setText("Game Over!");
+                        //result.setVisibility(View.VISIBLE);
+                        result.setTextColor(0xFF43D110);
+                        new insertScore().execute();
+                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        startActivity(seeScore);
+                        //setLastScore(lastScore);
+
+
+                    }
 
 
                 }
@@ -302,37 +356,49 @@ public class Level1Quiz extends AppCompatActivity {
         }
     }
 
-    private void setLastScore(int number) {
-
-
-
-    }
 
     private class insertScore  extends AsyncTask<Void,Integer,Integer> {
 
 
         @Override
         protected Integer doInBackground(Void... voids) {
-//            setLastScore(lastScore);
+
             scores = achievementDatabase.achievementDAO().getScores();
 
             String score = Integer.toString(lastScore);
             score = score + "/10";
 
             int count = scores.size();
-            if (count < 5) {
+            if (count !=5) {
                 Achievement toAdd = new Achievement(score, count + 1);
 
                 scores.add(0, toAdd);
+                Log.d(TAG, "<5 "+String.valueOf(count));
+                for(int i=0; i<=(count);i++){
+                    Log.d(TAG, scores.get(i).getScore());
+                }
                 achievementDatabase.achievementDAO().deleteScores();
+
                 achievementDatabase.achievementDAO().insertAll(scores);
+                List<Achievement>  toPrint = new ArrayList<>();
+                toPrint=achievementDatabase.achievementDAO().getScores();
+                Log.d(TAG, "after delete <5 "+toPrint.get(0).getScore());
             } else {
 
                 scores.remove(scores.size() - 1);
                 Achievement toAdd = new Achievement(score, count + 1);
                 scores.add(0, toAdd);
+                Log.d(TAG, "=5 "+String.valueOf(count));
+                for(int i=0; i<=(count-1);i++){
+                    Log.d(TAG, scores.get(i).getScore());
+                }
+
                 achievementDatabase.achievementDAO().deleteScores();
+
                 achievementDatabase.achievementDAO().insertAll(scores);
+                List<Achievement>  toPrint = new ArrayList<>();
+                toPrint=achievementDatabase.achievementDAO().getScores();
+                Log.d(TAG, "after delete =5 "+toPrint.get(0).getScore());
 
             }
             return null;
@@ -340,6 +406,7 @@ public class Level1Quiz extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(Integer integer) {
+
             super.onPostExecute(integer);
         }
     }

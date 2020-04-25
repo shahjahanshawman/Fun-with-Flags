@@ -13,17 +13,13 @@ public interface AchievementDAO {
     @Query("Select * FROM Achievement")
     List<Achievement> getScores();
 
-
-
-
-
     @Query("Select Count(*) FROM Achievement")
     int getCount();
 
     @Insert
     void insertAll(List<Achievement> scores);
 
-    @Query("DELETE FROM achievement")
+    @Query("Delete  From  Achievement")
     void deleteScores();
 
 }

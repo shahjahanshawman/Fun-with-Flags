@@ -4,6 +4,87 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Level2Quiz">
+    tools:context=".Level1Quiz"
+    android:background="@color/blue">
 
+    <Button
+        android:id="@+id/L2country1"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="14dp"
+        android:text="country1"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/L2country2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/L2result" />
+
+    <Button
+        android:id="@+id/L2country2"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="14dp"
+        android:text="country2"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/L2country3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/L2country1" />
+
+    <Button
+        android:id="@+id/L2country3"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="14dp"
+        android:text="country3"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/L2country4"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/L2country2" />
+
+    <Button
+        android:id="@+id/L2country4"
+        android:layout_width="386dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="11dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="25dp"
+        android:text="country4"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/L2country3" />
+
+    <TextView
+        android:id="@+id/L2result"
+        android:layout_width="272dp"
+        android:layout_height="46dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="@font/comfortaa"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toTopOf="@+id/L2country1"
+        app:layout_constraintEnd_toEndOf="@+id/L2flag"
+        app:layout_constraintHorizontal_bias="0.472"
+        app:layout_constraintStart_toStartOf="@+id/L2flag"
+        app:layout_constraintTop_toBottomOf="@+id/L2flag" />
+
+    <ImageView
+        android:id="@+id/L2flag"
+        android:layout_width="308dp"
+        android:layout_height="193dp"
+        android:layout_marginStart="60dp"
+        android:layout_marginTop="104dp"
+        android:layout_marginEnd="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/ic_launcher" />
 </androidx.constraintlayout.widget.ConstraintLayout>

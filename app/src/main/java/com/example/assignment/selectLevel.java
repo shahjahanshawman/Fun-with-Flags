@@ -22,6 +22,13 @@ public class selectLevel extends AppCompatActivity implements View.OnClickListen
 
         level1 = findViewById(R.id.level1);
         level1.setOnClickListener(this);
+
+        level2 = findViewById(R.id.level2);
+        level2.setOnClickListener(this);
+
+        level3 = findViewById(R.id.level3);
+        level3.setOnClickListener(this);
+
     }
 
     @Override
