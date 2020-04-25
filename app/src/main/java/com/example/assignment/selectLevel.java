@@ -17,8 +17,7 @@ public class selectLevel extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_level);
 
-        back = findViewById(R.id.back);
-        back.setOnClickListener(this);
+        
 
         level1 = findViewById(R.id.level1);
         level1.setOnClickListener(this);
@@ -36,10 +35,7 @@ public class selectLevel extends AppCompatActivity implements View.OnClickListen
 
         switch (v.getId()) {
 
-            case R.id.back:
-                Intent back = new Intent(this, PlayScreen.class);
-                startActivity(back);
-                break;
+
 
             case R.id.level1:
                 Intent level1 = new Intent(this, Level1Quiz.class);

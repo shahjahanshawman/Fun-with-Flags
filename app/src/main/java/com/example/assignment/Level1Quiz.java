@@ -25,7 +25,7 @@ public class Level1Quiz extends AppCompatActivity {
     private AchievementDatabase achievementDatabase;
     ImageView fg;
     Button answer1, answer2, answer3, answer4;
-    TextView result;
+    TextView result, timer;
     int turn = 1;
     int lastScore;
     List<Achievement> scores;
@@ -58,7 +58,8 @@ public class Level1Quiz extends AppCompatActivity {
          answer3 = findViewById(R.id.L2country3);
          answer4 = findViewById(R.id.L2country4);
          result = findViewById(R.id.L2result);
-         //result.setVisibility(View.GONE);
+         timer = findViewById(R.id.timer);
+
 
          //sets the flag and button- turn keeps count on the list
          setQuestion(turn);
@@ -362,46 +363,50 @@ public class Level1Quiz extends AppCompatActivity {
 
         @Override
         protected Integer doInBackground(Void... voids) {
-
-            scores = achievementDatabase.achievementDAO().getScores();
-
             String score = Integer.toString(lastScore);
             score = score + "/10";
-
-            int count = scores.size();
-            if (count !=5) {
-                Achievement toAdd = new Achievement(score, count + 1);
-
-                scores.add(0, toAdd);
-                Log.d(TAG, "<5 "+String.valueOf(count));
-                for(int i=0; i<=(count);i++){
-                    Log.d(TAG, scores.get(i).getScore());
-                }
-                achievementDatabase.achievementDAO().deleteScores();
-
-                achievementDatabase.achievementDAO().insertAll(scores);
-                List<Achievement>  toPrint = new ArrayList<>();
-                toPrint=achievementDatabase.achievementDAO().getScores();
-                Log.d(TAG, "after delete <5 "+toPrint.get(0).getScore());
-            } else {
-
-                scores.remove(scores.size() - 1);
-                Achievement toAdd = new Achievement(score, count + 1);
-                scores.add(0, toAdd);
-                Log.d(TAG, "=5 "+String.valueOf(count));
-                for(int i=0; i<=(count-1);i++){
-                    Log.d(TAG, scores.get(i).getScore());
-                }
-
-                achievementDatabase.achievementDAO().deleteScores();
-
-                achievementDatabase.achievementDAO().insertAll(scores);
-                List<Achievement>  toPrint = new ArrayList<>();
-                toPrint=achievementDatabase.achievementDAO().getScores();
-                Log.d(TAG, "after delete =5 "+toPrint.get(0).getScore());
-
-            }
-            return null;
+            Achievement toInsert = new Achievement(score,1);
+            achievementDatabase.achievementDAO().deleteScores(1);
+            achievementDatabase.achievementDAO().insert(toInsert);
+//            scores = achievementDatabase.achievementDAO().getScores();
+//
+//            String score = Integer.toString(lastScore);
+//            score = score + "/10";
+//
+//            int count = scores.size();
+//            if (count !=5) {
+//                Achievement toAdd = new Achievement(score, count + 1);
+//
+//                scores.add(0, toAdd);
+//                Log.d(TAG, "<5 "+String.valueOf(count));
+//                for(int i=0; i<=(count);i++){
+//                    Log.d(TAG, scores.get(i).getScore());
+//                }
+//                achievementDatabase.achievementDAO().deleteScores();
+//
+//                achievementDatabase.achievementDAO().insertAll(scores);
+//                List<Achievement>  toPrint = new ArrayList<>();
+//                toPrint=achievementDatabase.achievementDAO().getScores();
+//                Log.d(TAG, "after delete <5 "+toPrint.get(0).getScore());
+//            } else {
+//
+//                scores.remove(scores.size() - 1);
+//                Achievement toAdd = new Achievement(score, count + 1);
+//                scores.add(0, toAdd);
+//                Log.d(TAG, "=5 "+String.valueOf(count));
+//                for(int i=0; i<=(count-1);i++){
+//                    Log.d(TAG, scores.get(i).getScore());
+//                }
+//
+//                achievementDatabase.achievementDAO().deleteScores();
+//
+//                achievementDatabase.achievementDAO().insertAll(scores);
+//                List<Achievement>  toPrint = new ArrayList<>();
+//                toPrint=achievementDatabase.achievementDAO().getScores();
+//                Log.d(TAG, "after delete =5 "+toPrint.get(0).getScore());
+//
+//            }
+          return null;
         }
 
         @Override

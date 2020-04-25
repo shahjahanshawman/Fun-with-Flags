@@ -17,10 +17,10 @@ public interface AchievementDAO {
     int getCount();
 
     @Insert
-    void insertAll(List<Achievement> scores);
+    void insert(Achievement scores);
 
-    @Query("Delete  From  Achievement")
-    void deleteScores();
+    @Query("Delete  From  Achievement Where level =:level")
+    void deleteScores(int level);
 
 }
 

@@ -13,20 +13,22 @@ public class Achievement {
     String score;
 
     @PrimaryKey
-    int row;
+    int level;
 
-    public Achievement(String score, int row){
+    public Achievement(String score, int level){
 
         this.score=score;
-        this.row = row;
+        this.level = level;
     }
 
-    public int getRow() {
-        return row;
+    public int getLevel() {
+
+        return level;
     }
 
-    public void setRow(int row) {
-        this.row = row;
+    public void setLevel(int level) {
+
+        this.level = level;
     }
 
     public String getScore() {
@@ -35,6 +37,7 @@ public class Achievement {
     }
 
     public void setScore(String score) {
+
         this.score = score;
     }
 
