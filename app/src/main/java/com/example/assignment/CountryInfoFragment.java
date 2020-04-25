@@ -1,6 +1,5 @@
 package com.example.assignment;
 
-import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import android.net.Uri;
 import android.content.Intent;
@@ -56,8 +55,8 @@ public class CountryInfoFragment extends Fragment {
         int position = 0;
 
         flag = v.findViewById(R.id.flag);
-        name = v.findViewById(R.id.name);
-        level = v.findViewById(R.id.level);
+        name = v.findViewById(R.id.cname);
+        level = v.findViewById(R.id.clevel);
         search = v.findViewById(R.id.search);
 
         boolean wide = false;
@@ -75,7 +74,7 @@ public class CountryInfoFragment extends Fragment {
 
         flag.setImageResource(newCountry.getFlag());
         name.setText(newCountry.getAnswers());
-        level.setText(newCountry.getLevel());
+        level.setText(Integer.toString(newCountry.getLevel()));
 
         search.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {

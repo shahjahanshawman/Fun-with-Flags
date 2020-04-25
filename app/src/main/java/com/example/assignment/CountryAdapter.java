@@ -43,7 +43,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
             v.setOnClickListener(this);
             countryName = itemView.findViewById(R.id.countryName);
             countryFlag = itemView.findViewById(R.id.countryFlag);
-            level = itemView.findViewById(R.id.level);
+            level = itemView.findViewById(R.id.clevel);
             itemView.setOnClickListener(this);
         }
 
