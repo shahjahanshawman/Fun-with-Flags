@@ -55,8 +55,8 @@ public class Level3Quiz extends AppCompatActivity {
 
         answer1 = findViewById(R.id.L3country1);
         answer2 = findViewById(R.id.L3country2);
-        answer3 = findViewById(R.id.L3country1);
-        answer4 = findViewById(R.id.L3country1);
+        answer3 = findViewById(R.id.L3country3);
+        answer4 = findViewById(R.id.L3country4);
         result = findViewById(R.id.L3result);
         //result.setVisibility(View.GONE);
 
@@ -362,45 +362,51 @@ public class Level3Quiz extends AppCompatActivity {
 
         @Override
         protected Integer doInBackground(Void... voids) {
-
-            scores = achievementDatabase.achievementDAO().getScores();
-
             String score = Integer.toString(lastScore);
             score = score + "/10";
+            Achievement toInsert = new Achievement(score,3);
+            achievementDatabase.achievementDAO().deleteScores(3);
+            achievementDatabase.achievementDAO().insert(toInsert);
 
-            int count = scores.size();
-            if (count !=5) {
-                Achievement toAdd = new Achievement(score, count + 1);
 
-                scores.add(0, toAdd);
-                Log.d(TAG, "<5 "+String.valueOf(count));
-                for(int i=0; i<=(count);i++){
-                    Log.d(TAG, scores.get(i).getScore());
-                }
-                achievementDatabase.achievementDAO().deleteScores();
-
-                achievementDatabase.achievementDAO().insertAll(scores);
-                List<Achievement>  toPrint = new ArrayList<>();
-                toPrint=achievementDatabase.achievementDAO().getScores();
-                Log.d(TAG, "after delete <5 "+toPrint.get(0).getScore());
-            } else {
-
-                scores.remove(scores.size() - 1);
-                Achievement toAdd = new Achievement(score, count + 1);
-                scores.add(0, toAdd);
-                Log.d(TAG, "=5 "+String.valueOf(count));
-                for(int i=0; i<=(count-1);i++){
-                    Log.d(TAG, scores.get(i).getScore());
-                }
-
-                achievementDatabase.achievementDAO().deleteScores();
-
-                achievementDatabase.achievementDAO().insertAll(scores);
-                List<Achievement>  toPrint = new ArrayList<>();
-                toPrint=achievementDatabase.achievementDAO().getScores();
-                Log.d(TAG, "after delete =5 "+toPrint.get(0).getScore());
-
-            }
+//            scores = achievementDatabase.achievementDAO().getScores();
+//
+//            String score = Integer.toString(lastScore);
+//            score = score + "/10";
+//
+//            int count = scores.size();
+//            if (count !=5) {
+//                Achievement toAdd = new Achievement(score, count + 1);
+//
+//                scores.add(0, toAdd);
+//                Log.d(TAG, "<5 "+String.valueOf(count));
+//                for(int i=0; i<=(count);i++){
+//                    Log.d(TAG, scores.get(i).getScore());
+//                }
+//                achievementDatabase.achievementDAO().deleteScores();
+//
+//                achievementDatabase.achievementDAO().insertAll(scores);
+//                List<Achievement>  toPrint = new ArrayList<>();
+//                toPrint=achievementDatabase.achievementDAO().getScores();
+//                Log.d(TAG, "after delete <5 "+toPrint.get(0).getScore());
+//            } else {
+//
+//                scores.remove(scores.size() - 1);
+//                Achievement toAdd = new Achievement(score, count + 1);
+//                scores.add(0, toAdd);
+//                Log.d(TAG, "=5 "+String.valueOf(count));
+//                for(int i=0; i<=(count-1);i++){
+//                    Log.d(TAG, scores.get(i).getScore());
+//                }
+//
+//                achievementDatabase.achievementDAO().deleteScores();
+//
+//                achievementDatabase.achievementDAO().insertAll(scores);
+//                List<Achievement>  toPrint = new ArrayList<>();
+//                toPrint=achievementDatabase.achievementDAO().getScores();
+//                Log.d(TAG, "after delete =5 "+toPrint.get(0).getScore());
+//
+//            }
             return null;
         }
 
