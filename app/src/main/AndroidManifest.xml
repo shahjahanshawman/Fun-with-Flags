@@ -19,7 +19,7 @@
         <activity android:name=".learnScreen" />
         <activity android:name=".Level3Quiz" />
         <activity android:name=".Level2Quiz" />
-        <activity android:name=".AchievementScreen" />
+        <activity android:name=".ResultsScreen" />
         <activity android:name=".helpScreen" />
         <activity android:name=".selectLevel" />
         <activity android:name=".MainMenu" />

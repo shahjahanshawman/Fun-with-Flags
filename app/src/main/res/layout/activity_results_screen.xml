@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/blue"
-    tools:context=".AchievementScreen">
+    tools:context=".ResultsScreen">
 
     <TextView
         android:id="@+id/Results"

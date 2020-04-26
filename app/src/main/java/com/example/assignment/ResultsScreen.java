@@ -14,9 +14,9 @@ import java.util.List;
 
 import static android.view.View.*;
 
-public class AchievementScreen extends AppCompatActivity implements OnClickListener {
-    private static final String TAG = "achievement";
-    AchievementDatabase achievementDatabase;
+public class ResultsScreen extends AppCompatActivity implements OnClickListener {
+    private static final String TAG = "ResultsScreen";
+    ResultsDatabase resultsDatabase;
     TextView first,second,third;
     Button back;
     @Override
@@ -24,7 +24,7 @@ public class AchievementScreen extends AppCompatActivity implements OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_results_screen);
 
-        achievementDatabase = Room.databaseBuilder(getApplicationContext(), AchievementDatabase.class, "myDB")
+        resultsDatabase = Room.databaseBuilder(getApplicationContext(), ResultsDatabase.class, "myDB")
                 .build();
         new InsertScore().execute();
 
@@ -48,7 +48,7 @@ public class AchievementScreen extends AppCompatActivity implements OnClickListe
         @Override
         protected List<Results> doInBackground(Void... voids) {
 
-            List<Results> newList =achievementDatabase.achievementDAO().getScores();
+            List<Results> newList = resultsDatabase.resultsDAO().getScores();
             return newList;
         }
 
