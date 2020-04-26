@@ -37,16 +37,16 @@ public class MainInfo implements Serializable {
     private String subregion;
     @SerializedName("population")
     @Expose
-    private Integer population;
+    private Float population;
     @SerializedName("latlng")
     @Expose
-    private List<Integer> latlng = null;
+    private List<Float> latlng = null;
     @SerializedName("demonym")
     @Expose
     private String demonym;
     @SerializedName("area")
     @Expose
-    private Integer area;
+    private Float area;
     @SerializedName("gini")
     @Expose
     private Object gini;
@@ -153,19 +153,19 @@ public class MainInfo implements Serializable {
         this.subregion = subregion;
     }
 
-    public Integer getPopulation() {
+    public Float getPopulation() {
         return population;
     }
 
-    public void setPopulation(Integer population) {
+    public void setPopulation(Float population) {
         this.population = population;
     }
 
-    public List<Integer> getLatlng() {
+    public List<Float> getLatlng() {
         return latlng;
     }
 
-    public void setLatlng(List<Integer> latlng) {
+    public void setLatlng(List<Float> latlng) {
         this.latlng = latlng;
     }
 
@@ -177,11 +177,11 @@ public class MainInfo implements Serializable {
         this.demonym = demonym;
     }
 
-    public Integer getArea() {
+    public Float getArea() {
         return area;
     }
 
-    public void setArea(Integer area) {
+    public void setArea(Float area) {
         this.area = area;
     }
 

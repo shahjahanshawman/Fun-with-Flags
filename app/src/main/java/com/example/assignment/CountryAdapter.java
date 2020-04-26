@@ -1,6 +1,7 @@
 package com.example.assignment;
 
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,18 +10,22 @@ import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
+import com.example.assignment.InfoFromAPI.MainInfo;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryViewHolder> {
 
     private static final String TAG = "CountryAdapter";
 
 
-    private ArrayList<Countries> mCountries;
+    private ArrayList<MainInfo> mCountries;
     private RecyclerViewClickListener mListener;
 
 
-    public CountryAdapter(ArrayList<Countries> countries, RecyclerViewClickListener listener) {
+    public CountryAdapter(ArrayList<MainInfo> countries, RecyclerViewClickListener listener) {
         mCountries = countries;
         mListener = listener;
 
@@ -64,9 +69,22 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
     @Override
     public void onBindViewHolder(CountryViewHolder holder, int position) {
 
-        Countries countries = mCountries.get(position);
-        holder.countryName.setText(countries.getAnswers());
-        holder.countryFlag.setImageResource(countries.getFlag());
+        MainInfo countries = mCountries.get(position);
+        holder.countryName.setText(countries.getName());
+
+        //https://www.countries-ofthe-world.com/flags-normal/flag-of-Bosnia-Herzegovina.png
+        String url ="https://www.countries-ofthe-world.com/flags-normal/flag-of-";
+        String forImage = countries.getName();
+        if(forImage.contains(" ")){
+            forImage=forImage.replace(" ", "-");
+        }
+
+
+        url= url+forImage+".png";
+        Log.d(TAG, url+" in adapter");
+        Glide.with(holder.itemView).load(url).into(holder.countryFlag);
+
+//        holder.countryFlag.setImageResource(countries.getFlag());
     }
 
 
@@ -75,4 +93,9 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
         return mCountries.size();
     }
 
+    public void setCountries(List<MainInfo> newSet) {
+        mCountries.clear();
+        mCountries.addAll(newSet) ;
+        notifyDataSetChanged();
+    }
 }

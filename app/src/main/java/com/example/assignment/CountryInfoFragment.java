@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment;
 import android.net.Uri;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,12 +12,15 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+import com.example.assignment.InfoFromAPI.MainInfo;
+
 public class CountryInfoFragment extends Fragment {
 
     private ImageView flag;
-    private TextView name;
+    private TextView name, capital, currency, population;
     private Button search;
-    private Countries newCountry;
+    private MainInfo newCountry;
 
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
@@ -52,11 +56,14 @@ public class CountryInfoFragment extends Fragment {
 
         View v = inflater.inflate(R.layout.activity_country_info_fragment, container, false);
         //int position = 0;
-         newCountry = (Countries) getArguments().getSerializable("country");
+        newCountry = (MainInfo) getArguments().getSerializable("country");
 
         flag = v.findViewById(R.id.flag);
         name = v.findViewById(R.id.cname);
         search = v.findViewById(R.id.search);
+        currency = v.findViewById(R.id.currency);
+        capital = v.findViewById(R.id.capital);
+        population = v.findViewById(R.id.population);
 
 //        boolean wide = false;
 //        if(this.getArguments() != null) {
@@ -71,12 +78,30 @@ public class CountryInfoFragment extends Fragment {
 //            newCountry = Countries.getCountries().get(position);
 //        }
 
-        flag.setImageResource(newCountry.getFlag());
-        name.setText(newCountry.getAnswers());
+        String url ="https://www.countries-ofthe-world.com/flags-normal/flag-of-";
+        String forImage = newCountry.getName();
+        if(forImage.contains(" ")){
+            forImage=forImage.replace(" ", "-");
+        }
+
+
+        url= url+forImage+".png";
+        
+        Glide.with(v).load(url).into(flag);
+
+
+        // flag.setImageResource(newCountry.getFlag());
+
+        name.setText(newCountry.getName());
+        currency.setText(newCountry.getCurrencies().get(0).getName());
+        capital.setText(newCountry.getCapital());
+
+
+        population.setText(String.valueOf(newCountry.getPopulation()));
 
         search.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                googleCountry(newCountry.getAnswers());
+                googleCountry(newCountry.getName());
             }
         });
         return v;
