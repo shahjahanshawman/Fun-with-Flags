@@ -21,18 +21,16 @@
     <Button
         android:id="@+id/playBtn"
         android:layout_width="358dp"
-        android:layout_height="164dp"
+        android:layout_height="167dp"
         android:layout_marginStart="70dp"
-        android:layout_marginTop="45dp"
+        android:layout_marginTop="100dp"
         android:layout_marginEnd="10dp"
-        android:layout_marginBottom="100dp"
         android:background="#4097DC"
         android:fontFamily="@font/comfortaa"
         android:text="PLAY"
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/achBtn"
         app:layout_constraintEnd_toStartOf="@+id/lrnBtn"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
@@ -40,11 +38,9 @@
     <Button
         android:id="@+id/lrnBtn"
         android:layout_width="358dp"
-        android:layout_height="164dp"
+        android:layout_height="167dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="45dp"
         android:layout_marginEnd="70dp"
-        android:layout_marginBottom="40dp"
         android:background="#4097DC"
         android:fontFamily="@font/comfortaa"
         android:gravity="center"
@@ -52,19 +48,17 @@
         android:textColor="#FFFFFF"
         android:textSize="50sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/helpBtn"
+        app:layout_constraintBottom_toBottomOf="@+id/playBtn"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/playBtn"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+        app:layout_constraintTop_toTopOf="@+id/playBtn" />
 
     <Button
         android:id="@+id/helpBtn"
-        android:layout_width="290dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="60dp"
-        android:layout_marginEnd="144dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="257dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="140dp"
         android:background="#4097DC"
         android:fontFamily="@font/comfortaa"
         android:gravity="center"
@@ -72,18 +66,15 @@
         android:textColor="#FFFFFF"
         android:textSize="45sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/achBtn"
-        app:layout_constraintTop_toBottomOf="@+id/lrnBtn" />
+        app:layout_constraintTop_toBottomOf="@+id/playBtn" />
 
     <Button
         android:id="@+id/achBtn"
-        android:layout_width="290dp"
-        android:layout_height="99dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="100dp"
+        android:layout_width="257dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="128dp"
+        android:layout_marginTop="140dp"
         android:background="#4097DC"
         android:fontFamily="@font/comfortaa"
         android:gravity="center"
@@ -91,11 +82,8 @@
         android:textColor="#FFFFFF"
         android:textSize="45sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/helpBtn"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/playBtn"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/playBtn" />
 
     <TextView
         android:id="@+id/title"
@@ -116,4 +104,20 @@
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/notes"
+        android:layout_width="257dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="20dp"
+        android:background="#4097DC"
+        android:fontFamily="@font/comfortaa"
+        android:text="Take Notes"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toEndOf="@+id/helpBtn"
+        app:layout_constraintTop_toTopOf="@+id/helpBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
