@@ -4,45 +4,57 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
     tools:context=".AchievementScreen">
 
     <TextView
         android:id="@+id/p3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/p1"
-        app:layout_constraintTop_toTopOf="@+id/g3" />
+        app:layout_constraintTop_toTopOf="@+id/g3"
+        tools:text="5/10" />
 
     <TextView
-        android:id="@+id/achievements"
+        android:id="@+id/Results"
         android:layout_width="176dp"
         android:layout_height="40dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="136dp"
-        android:text="Achievements"
+        android:layout_marginStart="44dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/comfortaa"
+        android:text="Results"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="24sp"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/points"
-        android:layout_width="112dp"
-        android:layout_height="25dp"
-        android:layout_marginTop="32dp"
-        android:text="Last Score"
+        android:layout_width="189dp"
+        android:layout_height="39dp"
+        android:layout_marginTop="44dp"
+        android:fontFamily="@font/comfortaa"
+        android:text="Last Scores"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="@+id/achievements"
-        app:layout_constraintTop_toBottomOf="@+id/achievements" />
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/Results"
+        app:layout_constraintTop_toBottomOf="@+id/Results" />
 
     <TextView
         android:id="@+id/g1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/comfortaa"
         android:text="Level 1"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/points"
         app:layout_constraintTop_toBottomOf="@+id/points" />
 
@@ -50,17 +62,23 @@
         android:id="@+id/g2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/comfortaa"
         android:text="Level 2"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/points"
-        app:layout_constraintTop_toBottomOf="@+id/points" />
+        app:layout_constraintTop_toBottomOf="@+id/g1" />
 
     <TextView
         android:id="@+id/g3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/comfortaa"
         android:text="Level 3"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/points"
         app:layout_constraintTop_toBottomOf="@+id/g2" />
 
@@ -69,22 +87,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
+        android:fontFamily="@font/comfortaa"
+        android:text="9/10"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/g1"
         app:layout_constraintTop_toTopOf="@+id/g1" />
 
     <TextView
         android:id="@+id/p2"
-        android:layout_width="63dp"
-        android:layout_height="21dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa"
+        android:text="3/10"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/p1"
         app:layout_constraintTop_toTopOf="@+id/g2" />
 
     <Button
         android:id="@+id/back"
+        android:fontFamily="@font/comfortaa"
+        android:background="#4097DC"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="56dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="40dp"
+        android:layout_marginEnd="36dp"
         android:text="Home"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

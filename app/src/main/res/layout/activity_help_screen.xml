@@ -11,27 +11,32 @@
         android:id="@+id/howTo"
         android:layout_width="332dp"
         android:layout_height="61dp"
-        android:layout_marginTop="160dp"
-        android:layout_marginEnd="36dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="44dp"
         android:fontFamily="@font/comfortaa"
-        android:text="HOW TO PLAY"
+        android:text="LEARN AND PLAY"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
-        android:textSize="40sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/instruction1"
-        android:layout_width="344dp"
-        android:layout_height="292dp"
+        android:layout_width="339dp"
+        android:layout_height="463dp"
         android:layout_marginStart="36dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/comfortaa"
-        android:lines="5"
-        android:text="- Select a level to start the quiz \n
-        \n- Click on the correct Answer!"
+        android:lines="12"
+        android:text="Visit the LEARN section to explore different countries!
+        \n
+        \nPLAY and test your knowledge in a quiz!
+        \n
+        \nSelect a LEVEL to begin!
+        \n
+        \nRevisit your RESULTS!"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
