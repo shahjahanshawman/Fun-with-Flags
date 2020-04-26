@@ -62,7 +62,7 @@ public class Level1Quiz extends AppCompatActivity {
          answer3 = findViewById(R.id.L2country3);
          answer4 = findViewById(R.id.L2country4);
          result = findViewById(R.id.L2result);
-         timer = findViewById(R.id.timer);
+
 
             
 //        setTimer();
@@ -80,7 +80,7 @@ public class Level1Quiz extends AppCompatActivity {
                     result.setTextColor(0xFF43D110);
                     lastScore++;
                     //checks if end of list
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -101,7 +101,7 @@ public class Level1Quiz extends AppCompatActivity {
                    // result.setVisibility(View.VISIBLE);
 //                    turn++;
 //                    setQuestion(turn);
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -128,7 +128,7 @@ public class Level1Quiz extends AppCompatActivity {
                     result.setTextColor(0xFF43D110);
                     //result.setVisibility(View.VISIBLE);
                     lastScore++;
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -147,7 +147,7 @@ public class Level1Quiz extends AppCompatActivity {
                     //result.setVisibility(View.VISIBLE);
 //                    turn++;
 //                    setQuestion(turn);
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -176,7 +176,7 @@ public class Level1Quiz extends AppCompatActivity {
                     result.setTextColor(0xFF43D110);
                     //result.setVisibility(View.VISIBLE);
                     lastScore++;
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -194,7 +194,7 @@ public class Level1Quiz extends AppCompatActivity {
                     //result.setVisibility(View.VISIBLE);
 //                    turn++;
 //                    setQuestion(turn);
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -223,7 +223,7 @@ public class Level1Quiz extends AppCompatActivity {
                     result.setTextColor(0xFF43D110);
                     //result.setVisibility(View.VISIBLE);
                     lastScore++;
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -239,7 +239,7 @@ public class Level1Quiz extends AppCompatActivity {
                    // result.setVisibility(View.VISIBLE);
 //                    turn++;
 //                    setQuestion(turn);
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -261,61 +261,6 @@ public class Level1Quiz extends AppCompatActivity {
 
 
     }
-
-//    private void setTimer() {
-//        if (timerRunning) {
-//            stopTimer();
-//        } else{
-//            startTimer();
-//        }
-////        countDownTimer = new CountDownTimer(1200000,1000) {
-////            @Override
-////            public void onTick(long millisUntilFinished) {
-////                timer.setText((int) (millisUntilFinished/1000));
-////            }
-////
-////            @Override
-////            public void onFinish() {
-////                timer.setText("Time's Up!");
-////                timer.setTextColor(0xFF43D110);
-////            }
-////        };
-//    }
-//
-//    private void stopTimer() {
-//        countDownTimer.cancel();
-//        timerRunning=false;
-//    }
-//
-//    private void startTimer() {
-//        countDownTimer = new CountDownTimer(timeLeftInMilliSeconds,1000 ) {
-//            @Override
-//            public void onTick(long l) {
-//                timeLeftInMilliSeconds =l;
-//                updateTimer();
-//            }
-//
-//            @Override
-//            public void onFinish() {
-//
-//            }
-//        }.start();
-//        timerRunning=true;
-//    }
-//
-//    public void updateTimer() {
-//        int min = (int) timeLeftInMilliSeconds/60000;
-//        int sec = (int)  timeLeftInMilliSeconds%60000/1000;
-//
-//        String timeLeft = ""+min;
-//        timeLeft+=":";
-//        if (sec < 10) timeLeft+=0;
-//        timeLeft+=sec;
-//        timer.setText(timeLeft);
-//
-//
-//
-//    }
 
 
     private void setQuestion(int number) {
@@ -423,48 +368,11 @@ public class Level1Quiz extends AppCompatActivity {
         @Override
         protected Integer doInBackground(Void... voids) {
             String score = Integer.toString(lastScore);
-            score = score + "/10";
+            score = score + "/20";
             Achievement toInsert = new Achievement(score,1);
             achievementDatabase.achievementDAO().deleteScores(1);
             achievementDatabase.achievementDAO().insert(toInsert);
-//            scores = achievementDatabase.achievementDAO().getScores();
-//
-//            String score = Integer.toString(lastScore);
-//            score = score + "/10";
-//
-//            int count = scores.size();
-//            if (count !=5) {
-//                Achievement toAdd = new Achievement(score, count + 1);
-//
-//                scores.add(0, toAdd);
-//                Log.d(TAG, "<5 "+String.valueOf(count));
-//                for(int i=0; i<=(count);i++){
-//                    Log.d(TAG, scores.get(i).getScore());
-//                }
-//                achievementDatabase.achievementDAO().deleteScores();
-//
-//                achievementDatabase.achievementDAO().insertAll(scores);
-//                List<Achievement>  toPrint = new ArrayList<>();
-//                toPrint=achievementDatabase.achievementDAO().getScores();
-//                Log.d(TAG, "after delete <5 "+toPrint.get(0).getScore());
-//            } else {
-//
-//                scores.remove(scores.size() - 1);
-//                Achievement toAdd = new Achievement(score, count + 1);
-//                scores.add(0, toAdd);
-//                Log.d(TAG, "=5 "+String.valueOf(count));
-//                for(int i=0; i<=(count-1);i++){
-//                    Log.d(TAG, scores.get(i).getScore());
-//                }
-//
-//                achievementDatabase.achievementDAO().deleteScores();
-//
-//                achievementDatabase.achievementDAO().insertAll(scores);
-//                List<Achievement>  toPrint = new ArrayList<>();
-//                toPrint=achievementDatabase.achievementDAO().getScores();
-//                Log.d(TAG, "after delete =5 "+toPrint.get(0).getScore());
-//
-//            }
+
           return null;
         }
 

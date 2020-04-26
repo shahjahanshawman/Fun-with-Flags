@@ -8,11 +8,12 @@ import androidx.fragment.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.example.assignment.InfoFromAPI.MainInfo;
 import com.google.gson.Gson;
 
 public class CountryInfoActivity extends AppCompatActivity {
 
-    Countries toDisplay;
+    MainInfo toDisplay;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,7 +23,7 @@ public class CountryInfoActivity extends AppCompatActivity {
         if(i.getExtras() != null) {
             Bundle extras = i.getExtras();
             jsonMyObject = extras.getString("country");
-            toDisplay = new Gson().fromJson(jsonMyObject, Countries.class);
+            toDisplay = new Gson().fromJson(jsonMyObject, MainInfo.class);
 
         }
 

@@ -71,7 +71,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
 
         MainInfo countries = mCountries.get(position);
         holder.countryName.setText(countries.getName());
-
+        holder.countryFlag.setImageResource(R.drawable.missing_flag);
         //https://www.countries-ofthe-world.com/flags-normal/flag-of-Bosnia-Herzegovina.png
         String url ="https://www.countries-ofthe-world.com/flags-normal/flag-of-";
         String forImage = countries.getName();
@@ -82,7 +82,9 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
 
         url= url+forImage+".png";
         Log.d(TAG, url+" in adapter");
-        Glide.with(holder.itemView).load(url).into(holder.countryFlag);
+        Glide.with(holder.itemView).load(url)
+                .error(R.drawable.missing_flag)
+                        .into(holder.countryFlag);
 
 //        holder.countryFlag.setImageResource(countries.getFlag());
     }

@@ -20,8 +20,8 @@
 
     <TextView
         android:id="@+id/Results"
-        android:layout_width="176dp"
-        android:layout_height="40dp"
+        android:layout_width="191dp"
+        android:layout_height="71dp"
         android:layout_marginStart="44dp"
         android:layout_marginTop="88dp"
         android:fontFamily="@font/comfortaa"
@@ -37,7 +37,7 @@
         android:id="@+id/points"
         android:layout_width="189dp"
         android:layout_height="39dp"
-        android:layout_marginTop="44dp"
+        android:layout_marginTop="40dp"
         android:fontFamily="@font/comfortaa"
         android:text="Last Scores"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"

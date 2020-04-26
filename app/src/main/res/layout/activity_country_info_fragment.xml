@@ -12,6 +12,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/currency"
         app:layout_constraintTop_toTopOf="@+id/textview" />
 
@@ -20,6 +23,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/capital"
         app:layout_constraintTop_toTopOf="@+id/textView3" />
 
@@ -29,8 +35,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:text="Currency"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/capital" />
 
     <ImageView
         android:id="@+id/flag"
@@ -43,7 +51,7 @@
         app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cname"
-        app:srcCompat="@drawable/afghanistan" />
+        app:srcCompat="@drawable/missing_flag" />
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/missing_flag" />
 
@@ -66,45 +74,48 @@
 
     <Button
         android:id="@+id/search"
-        android:layout_width="130dp"
-        android:layout_height="74dp"
-        android:layout_marginStart="111dp"
-        android:layout_marginTop="200dp"
-        android:layout_marginEnd="168dp"
-        android:layout_marginBottom="56dp"
+        android:layout_width="135dp"
+        android:layout_height="57dp"
+        android:layout_marginTop="36dp"
         android:background="#4097DC"
         android:fontFamily="@font/comfortaa"
         android:text="Learn More"
         android:textColor="#FFFFFF"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flag" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:text="Capital"
-        app:layout_constraintStart_toStartOf="@+id/textView2"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
+        app:layout_constraintStart_toStartOf="@+id/textview"
+        app:layout_constraintTop_toBottomOf="@+id/textview" />
 
     <TextView
         android:id="@+id/textview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="28dp"
         android:text="Population"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
         app:layout_constraintStart_toStartOf="@+id/textView3"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <TextView
         android:id="@+id/capital"
-        android:layout_width="111dp"
-        android:layout_height="18dp"
-        app:layout_constraintStart_toStartOf="@+id/cname"
+        android:layout_width="151dp"
+        android:layout_height="32dp"
+        android:layout_marginStart="84dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/textView"
         app:layout_constraintTop_toTopOf="@+id/textView" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="40dp"
+        android:text="Capital"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flag" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -86,8 +86,8 @@ public class CountryInfoFragment extends Fragment {
 
 
         url= url+forImage+".png";
-        
-        Glide.with(v).load(url).into(flag);
+
+        Glide.with(v).load(url).error(R.drawable.missing_flag).into(flag);
 
 
         // flag.setImageResource(newCountry.getFlag());
@@ -96,8 +96,8 @@ public class CountryInfoFragment extends Fragment {
         currency.setText(newCountry.getCurrencies().get(0).getName());
         capital.setText(newCountry.getCapital());
 
-
-        population.setText(String.valueOf(newCountry.getPopulation()));
+        Float pop = newCountry.getPopulation();
+        population.setText(truncateNumber(pop));
 
         search.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -111,5 +111,50 @@ public class CountryInfoFragment extends Fragment {
         String url = "https://www.google.com/search?q=" + countryName;
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
         startActivity(intent);
+    }
+
+
+
+
+//
+//    public String pop(long number, long divisor) {
+//        long truncate = (number * 10L + (divisor / 2L)) / divisor;
+//        float fraction = (float) truncate * 0.10F;
+//        return fraction;
+//
+//        long million = 1000000L;
+//        long billion = 1000000000L;
+//        long trillion = 1000000000000L;
+//        long number = Math.round(floatNumber);
+//        if ((number >= million) && (number < billion)) {
+//            float fraction = calculateFraction(number, million);
+//            return Float.toString(fraction) + "M";
+//        } else if ((number >= billion) && (number < trillion)) {
+//            float fraction = calculateFraction(number, billion);
+//            return Float.toString(fraction) + "B";
+//        }
+//        return Long.toString(number);
+//    }
+//    }
+
+    public String truncateNumber(float floatNumber) {
+        long million = 1000000L;
+        long billion = 1000000000L;
+        long trillion = 1000000000000L;
+        long number = Math.round(floatNumber);
+        if ((number >= million) && (number < billion)) {
+            float fraction = calculateFraction(number, million);
+            return Float.toString(fraction) + "M";
+        } else if ((number >= billion) && (number < trillion)) {
+            float fraction = calculateFraction(number, billion);
+            return Float.toString(fraction) + "B";
+        }
+        return Long.toString(number);
+    }
+
+    public float calculateFraction(long number, long divisor) {
+        long truncate = (number * 10L + (divisor / 2L)) / divisor;
+        float fraction = (float) truncate * 0.10F;
+        return fraction;
     }
 }

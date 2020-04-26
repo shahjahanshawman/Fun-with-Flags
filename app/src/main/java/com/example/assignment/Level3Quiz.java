@@ -73,7 +73,7 @@ public class Level3Quiz extends AppCompatActivity {
                     result.setTextColor(0xFF43D110);
                     lastScore++;
                     //checks if end of list
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -94,7 +94,7 @@ public class Level3Quiz extends AppCompatActivity {
                     // result.setVisibility(View.VISIBLE);
 //                    turn++;
 //                    setQuestion(turn);
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -121,7 +121,7 @@ public class Level3Quiz extends AppCompatActivity {
                     result.setTextColor(0xFF43D110);
                     //result.setVisibility(View.VISIBLE);
                     lastScore++;
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -140,7 +140,7 @@ public class Level3Quiz extends AppCompatActivity {
                     //result.setVisibility(View.VISIBLE);
 //                    turn++;
 //                    setQuestion(turn);
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -169,7 +169,7 @@ public class Level3Quiz extends AppCompatActivity {
                     result.setTextColor(0xFF43D110);
                     //result.setVisibility(View.VISIBLE);
                     lastScore++;
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -187,7 +187,7 @@ public class Level3Quiz extends AppCompatActivity {
                     //result.setVisibility(View.VISIBLE);
 //                    turn++;
 //                    setQuestion(turn);
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -216,7 +216,7 @@ public class Level3Quiz extends AppCompatActivity {
                     result.setTextColor(0xFF43D110);
                     //result.setVisibility(View.VISIBLE);
                     lastScore++;
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -232,7 +232,7 @@ public class Level3Quiz extends AppCompatActivity {
                     // result.setVisibility(View.VISIBLE);
 //                    turn++;
 //                    setQuestion(turn);
-                    if(turn<10){
+                    if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
@@ -363,50 +363,12 @@ public class Level3Quiz extends AppCompatActivity {
         @Override
         protected Integer doInBackground(Void... voids) {
             String score = Integer.toString(lastScore);
-            score = score + "/10";
+            score = score + "/20";
             Achievement toInsert = new Achievement(score,3);
             achievementDatabase.achievementDAO().deleteScores(3);
             achievementDatabase.achievementDAO().insert(toInsert);
 
 
-//            scores = achievementDatabase.achievementDAO().getScores();
-//
-//            String score = Integer.toString(lastScore);
-//            score = score + "/10";
-//
-//            int count = scores.size();
-//            if (count !=5) {
-//                Achievement toAdd = new Achievement(score, count + 1);
-//
-//                scores.add(0, toAdd);
-//                Log.d(TAG, "<5 "+String.valueOf(count));
-//                for(int i=0; i<=(count);i++){
-//                    Log.d(TAG, scores.get(i).getScore());
-//                }
-//                achievementDatabase.achievementDAO().deleteScores();
-//
-//                achievementDatabase.achievementDAO().insertAll(scores);
-//                List<Achievement>  toPrint = new ArrayList<>();
-//                toPrint=achievementDatabase.achievementDAO().getScores();
-//                Log.d(TAG, "after delete <5 "+toPrint.get(0).getScore());
-//            } else {
-//
-//                scores.remove(scores.size() - 1);
-//                Achievement toAdd = new Achievement(score, count + 1);
-//                scores.add(0, toAdd);
-//                Log.d(TAG, "=5 "+String.valueOf(count));
-//                for(int i=0; i<=(count-1);i++){
-//                    Log.d(TAG, scores.get(i).getScore());
-//                }
-//
-//                achievementDatabase.achievementDAO().deleteScores();
-//
-//                achievementDatabase.achievementDAO().insertAll(scores);
-//                List<Achievement>  toPrint = new ArrayList<>();
-//                toPrint=achievementDatabase.achievementDAO().getScores();
-//                Log.d(TAG, "after delete =5 "+toPrint.get(0).getScore());
-//
-//            }
             return null;
         }
 
