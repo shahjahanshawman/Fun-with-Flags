@@ -28,6 +28,9 @@ public class PlayScreen extends AppCompatActivity implements View.OnClickListene
         Button help = findViewById(R.id.helpBtn);
         help.setOnClickListener(this);
 
+        Button note = findViewById(R.id.notes);
+        note.setOnClickListener(this);
+
 
     }
 
@@ -55,6 +58,11 @@ public class PlayScreen extends AppCompatActivity implements View.OnClickListene
             case R.id.lrnBtn:
                 Intent lrnIntent = new Intent(this, learnScreen.class);
                 startActivity(lrnIntent);
+                break;
+
+            case R.id.notes:
+                Intent noteIntent = new Intent(this, Notes.class);
+                startActivity(noteIntent);
                 break;
 
             default:
