@@ -17,7 +17,7 @@ public class selectLevel extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_level);
 
-        
+
 
         level1 = findViewById(R.id.level1);
         level1.setOnClickListener(this);

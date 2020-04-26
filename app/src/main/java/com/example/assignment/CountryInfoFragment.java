@@ -51,24 +51,25 @@ public class CountryInfoFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.activity_country_info_fragment, container, false);
-        int position = 0;
+        //int position = 0;
+         newCountry = (Countries) getArguments().getSerializable("country");
 
         flag = v.findViewById(R.id.flag);
         name = v.findViewById(R.id.cname);
         search = v.findViewById(R.id.search);
 
-        boolean wide = false;
-        if(this.getArguments() != null) {
-            wide = getArguments().getBoolean("wide",true);
-        }
-
-        if(wide) {
-            newCountry = Countries.getCountries().get(getArguments().getInt("position"));
-        } else {
-            Intent intent = getActivity().getIntent();
-            position = intent.getIntExtra("position",0);
-            newCountry = Countries.getCountries().get(position);
-        }
+//        boolean wide = false;
+//        if(this.getArguments() != null) {
+//            wide = getArguments().getBoolean("wide",true);
+//        }
+//
+//        if(wide) {
+//            newCountry = Countries.getCountries().get(getArguments().getInt("position"));
+//        } else {
+//            Intent intent = getActivity().getIntent();
+//            position = intent.getIntExtra("position",0);
+//            newCountry = Countries.getCountries().get(position);
+//        }
 
         flag.setImageResource(newCountry.getFlag());
         name.setText(newCountry.getAnswers());

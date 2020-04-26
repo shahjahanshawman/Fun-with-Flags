@@ -15,10 +15,11 @@ import java.util.List;
 
 import static android.view.View.*;
 
-public class AchievementScreen extends AppCompatActivity  {
+public class AchievementScreen extends AppCompatActivity implements OnClickListener {
     private static final String TAG = "achievement";
     AchievementDatabase achievementDatabase;
     TextView first,second,third;
+    Button back;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,9 +33,15 @@ public class AchievementScreen extends AppCompatActivity  {
 
         second = findViewById(R.id.p2);
         third = findViewById(R.id.p3);
-
+        back = findViewById(R.id.back);
+        back.setOnClickListener(this);
     }
 
+    @Override
+    public void onClick(View v) {
+        Intent goHome = new Intent(this,PlayScreen.class );
+        startActivity(goHome);
+    }
 
 
     private class InsertScore extends AsyncTask<Void,Void, List<Achievement>> {
