@@ -11,6 +11,7 @@ import android.util.Log;
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
 
+    //Splash screen? - https://www.youtube.com/watch?v=jXtof6OUtcE&t=
     //set timer 2000 = 2 seconds
     private static int SPLASH_SCREEN = 2000;
 

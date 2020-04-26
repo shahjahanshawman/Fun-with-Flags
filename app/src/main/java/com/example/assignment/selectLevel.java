@@ -9,7 +9,7 @@ import android.widget.Button;
 
 public class selectLevel extends AppCompatActivity implements View.OnClickListener {
 
-    Button level1, level2, level3, back;
+    Button level1, level2, level3;
 
 
     @Override

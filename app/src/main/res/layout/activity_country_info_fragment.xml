@@ -52,8 +52,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cname"
         app:srcCompat="@drawable/missing_flag" />
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/missing_flag" />
+
 
     <TextView
         android:id="@+id/cname"
