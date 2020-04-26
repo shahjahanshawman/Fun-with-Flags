@@ -22,7 +22,7 @@
         <activity android:name=".AchievementScreen" />
         <activity android:name=".helpScreen" />
         <activity android:name=".selectLevel" />
-        <activity android:name=".PlayScreen" />
+        <activity android:name=".MainMenu" />
         <activity
             android:name=".Level1Quiz"
             android:label="Quiz"

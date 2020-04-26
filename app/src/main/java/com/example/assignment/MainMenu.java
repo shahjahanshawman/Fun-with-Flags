@@ -4,17 +4,19 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
-public class PlayScreen extends AppCompatActivity implements View.OnClickListener {
+public class MainMenu extends AppCompatActivity implements View.OnClickListener {
 
-    //play screen will act as the menu screen
+    private static final String TAG = "MainActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_play_screen);
+        Log.d(TAG, "Reached MainMenu");
 
         Button play = findViewById(R.id.playBtn);
         play.setOnClickListener(this);

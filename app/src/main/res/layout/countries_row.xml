@@ -17,6 +17,7 @@
             android:id="@+id/countryFlag"
             android:layout_width="210dp"
             android:layout_height="133dp"
+            android:layout_marginStart="5dp"
             android:scaleType="fitCenter"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"

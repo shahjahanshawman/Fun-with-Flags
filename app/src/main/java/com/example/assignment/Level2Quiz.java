@@ -28,7 +28,7 @@ public class Level2Quiz extends AppCompatActivity {
     TextView result;
     int turn = 1;
     int lastScore;
-    List<Achievement> scores;
+    List<Results> scores;
 
     //everything same as Level1Quiz except for level 2 countries
     @Override
@@ -356,7 +356,7 @@ public class Level2Quiz extends AppCompatActivity {
 
             String score = Integer.toString(lastScore);
             score = score + "/20";
-            Achievement toInsert = new Achievement(score,2);
+            Results toInsert = new Results(score,2);
             achievementDatabase.achievementDAO().deleteScores(2);
             achievementDatabase.achievementDAO().insert(toInsert);
 
