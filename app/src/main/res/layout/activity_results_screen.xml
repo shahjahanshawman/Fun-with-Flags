@@ -77,7 +77,6 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:fontFamily="@font/comfortaa"
-        android:text="0/20"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/g1"
@@ -88,7 +87,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/comfortaa"
-        android:text="0/20"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/p1"
@@ -102,8 +100,7 @@
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/p1"
-        app:layout_constraintTop_toTopOf="@+id/g3"
-        tools:text="0/20" />
+        app:layout_constraintTop_toTopOf="@+id/g3" />
 
     <Button
         android:id="@+id/back"
