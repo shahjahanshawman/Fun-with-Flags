@@ -30,6 +30,7 @@ public class Level3Quiz extends AppCompatActivity {
     int lastScore;
     List<Achievement> scores;
 
+    //everything same as Level1Quiz except for level 3 countries
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -58,7 +59,7 @@ public class Level3Quiz extends AppCompatActivity {
         answer3 = findViewById(R.id.L3country3);
         answer4 = findViewById(R.id.L3country4);
         result = findViewById(R.id.L3result);
-        //result.setVisibility(View.GONE);
+
 
         //sets the flag and button- turn keeps count on the list
         setQuestion(turn);
@@ -78,12 +79,12 @@ public class Level3Quiz extends AppCompatActivity {
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
+
 
 
                     }
@@ -91,20 +92,18 @@ public class Level3Quiz extends AppCompatActivity {
                     //output for wrong answer
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                    // result.setVisibility(View.VISIBLE);
-//                    turn++;
-//                    setQuestion(turn);
+
                     if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
+
 
 
                     }
@@ -119,7 +118,7 @@ public class Level3Quiz extends AppCompatActivity {
                 if(answer2.getText().toString().equalsIgnoreCase(countries.get(turn-1).getAnswers())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    //result.setVisibility(View.VISIBLE);
+
                     lastScore++;
                     if(turn<20){
                         turn++;
@@ -127,8 +126,7 @@ public class Level3Quiz extends AppCompatActivity {
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        //result.setVisibility(View.VISIBLE);
-//                        setLastScore(lastScore);
+
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
@@ -137,20 +135,18 @@ public class Level3Quiz extends AppCompatActivity {
                 } else {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                    //result.setVisibility(View.VISIBLE);
-//                    turn++;
-//                    setQuestion(turn);
+
                     if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
+
 
 
                     }
@@ -167,7 +163,7 @@ public class Level3Quiz extends AppCompatActivity {
                 if(answer3.getText().toString().equalsIgnoreCase(countries.get(turn-1).getAnswers())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    //result.setVisibility(View.VISIBLE);
+
                     lastScore++;
                     if(turn<20){
                         turn++;
@@ -175,8 +171,7 @@ public class Level3Quiz extends AppCompatActivity {
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        //result.setVisibility(View.VISIBLE);
-//                        setLastScore(lastScore);
+
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
@@ -184,24 +179,22 @@ public class Level3Quiz extends AppCompatActivity {
                 } else {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                    //result.setVisibility(View.VISIBLE);
-//                    turn++;
-//                    setQuestion(turn);
+
                     if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
+
 
 
                     }
-                    //finish();
+
 
                 }
             }
@@ -214,7 +207,7 @@ public class Level3Quiz extends AppCompatActivity {
                 if(answer4.getText().toString().equalsIgnoreCase(countries.get(turn-1).getAnswers())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    //result.setVisibility(View.VISIBLE);
+
                     lastScore++;
                     if(turn<20){
                         turn++;
@@ -229,20 +222,18 @@ public class Level3Quiz extends AppCompatActivity {
                 } else {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                    // result.setVisibility(View.VISIBLE);
-//                    turn++;
-//                    setQuestion(turn);
+
                     if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
+
 
 
                     }

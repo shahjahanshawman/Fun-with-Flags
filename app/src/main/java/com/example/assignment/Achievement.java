@@ -9,11 +9,13 @@ import java.util.List;
 @Entity
 public class Achievement {
 
+    //rows in the database
     @NonNull
     String score;
 
     @PrimaryKey
     int level;
+
 
     public Achievement(String score, int level){
 

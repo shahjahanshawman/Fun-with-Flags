@@ -5,6 +5,8 @@ import com.google.gson.annotations.SerializedName;
 
 public class Currency {
 
+    //storing data about Currency obtained from API
+
 
     @SerializedName("code")
     @Expose

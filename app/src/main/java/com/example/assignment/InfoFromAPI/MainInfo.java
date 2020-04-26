@@ -7,6 +7,9 @@ import com.google.gson.annotations.SerializedName;
 
 public class MainInfo implements Serializable {
 
+    //data obtained from API
+    //https://postwoman.io/ <-- used to organise the data
+    //http://www.jsonschema2pojo.org/ <-- used to obtain the objects
 
     @SerializedName("name")
     @Expose

@@ -2,6 +2,10 @@ package com.example.assignment;
 
 public class CountryDatabase {
 
+
+    //contains all the countries, flags and difficulty information for the quiz
+    ////link from where flag images are being taken--->https://www.countries-ofthe-world.com/flags-of-the-world.html
+
     int[] flags = {
         R.drawable.afghanistan,
         R.drawable.albania,

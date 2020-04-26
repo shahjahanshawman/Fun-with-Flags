@@ -26,13 +26,12 @@ public class Level1Quiz extends AppCompatActivity {
     private AchievementDatabase achievementDatabase;
     ImageView fg;
     Button answer1, answer2, answer3, answer4;
-    TextView result, timer;
+    TextView result;
     int turn = 1;
     int lastScore;
     List<Achievement> scores;
-    CountDownTimer countDownTimer;
-    long timeLeftInMilliSeconds = 120000;
-    boolean timerRunning;
+
+//https://www.youtube.com/watch?v=DbkBB3jga_g <----- video used to set the quiz
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +40,7 @@ public class Level1Quiz extends AppCompatActivity {
         setContentView(R.layout.activity_level1_quiz);
 
         countries = new ArrayList<>();
-        //adds countries to list
+        //adds countries to list that are of level 1
         for(int i=0;i<new CountryDatabase().answers.length;i++){
             if( new CountryDatabase().level[i]==1){
                 countries.add(new Countries(new CountryDatabase().answers[i], new CountryDatabase().flags[i],1));
@@ -64,54 +63,51 @@ public class Level1Quiz extends AppCompatActivity {
          result = findViewById(R.id.L2result);
 
 
-            
-//        setTimer();
-//         countDownTimer.start();
-         //sets the flag and button- turn keeps count on the list
+        //initiating the quiz
         setQuestion(turn);
         
-
+        //listening on the button to check if answer is correct, wrong or if game is over
+        //same with answer2, answer3, answer4
         answer1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(answer1.getText().toString().equalsIgnoreCase(countries.get(turn-1).getAnswers())){
                     result.setText("Correct!");    //checks for correct answer
-                    //result.setVisibility(View.VISIBLE);
+
                     result.setTextColor(0xFF43D110);
                     lastScore++;
+
                     //checks if end of list
                     if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
-
 
                     }
                 } else {
                     //output for wrong answer
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                   // result.setVisibility(View.VISIBLE);
-//                    turn++;
-//                    setQuestion(turn);
+
                     if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
+
+                        //inserts score in the database
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
+
 
 
                     }
@@ -126,7 +122,7 @@ public class Level1Quiz extends AppCompatActivity {
                 if(answer2.getText().toString().equalsIgnoreCase(countries.get(turn-1).getAnswers())){
                     result.setText("Correct!");
                     result.setTextColor(0xFF43D110);
-                    //result.setVisibility(View.VISIBLE);
+
                     lastScore++;
                     if(turn<20){
                         turn++;
@@ -134,8 +130,8 @@ public class Level1Quiz extends AppCompatActivity {
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        //result.setVisibility(View.VISIBLE);
-//                        setLastScore(lastScore);
+
+
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
@@ -144,21 +140,17 @@ public class Level1Quiz extends AppCompatActivity {
                 } else {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                    //result.setVisibility(View.VISIBLE);
-//                    turn++;
-//                    setQuestion(turn);
+
                     if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
-
 
                     }
 
@@ -182,8 +174,7 @@ public class Level1Quiz extends AppCompatActivity {
                     } else {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
-                        //result.setVisibility(View.VISIBLE);
-//                        setLastScore(lastScore);
+
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
@@ -191,24 +182,22 @@ public class Level1Quiz extends AppCompatActivity {
                 } else {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                    //result.setVisibility(View.VISIBLE);
-//                    turn++;
-//                    setQuestion(turn);
+
                     if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
+
 
 
                     }
-                    //finish();
+
 
                 }
             }
@@ -236,20 +225,18 @@ public class Level1Quiz extends AppCompatActivity {
                 } else {
                     result.setText("Wrong!");
                     result.setTextColor(0xFFD11010);
-                   // result.setVisibility(View.VISIBLE);
-//                    turn++;
-//                    setQuestion(turn);
+
                     if(turn<20){
                         turn++;
                         setQuestion(turn);
                     } else {
                         result.setText("Game Over!");
-                        //result.setVisibility(View.VISIBLE);
+
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
                         Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
                         startActivity(seeScore);
-                        //setLastScore(lastScore);
+
 
 
                     }
@@ -264,6 +251,7 @@ public class Level1Quiz extends AppCompatActivity {
 
 
     private void setQuestion(int number) {
+
         Log.d(TAG, countries.get(number-1).getAnswers());
         //sets image
         fg.setImageResource(countries.get(number-1).getFlag());
@@ -364,7 +352,7 @@ public class Level1Quiz extends AppCompatActivity {
 
     private class insertScore  extends AsyncTask<Void,Integer,Integer> {
 
-
+//inserts the score by first converting it to a string, appending "/20", deleting the previous score, then adding the score
         @Override
         protected Integer doInBackground(Void... voids) {
             String score = Integer.toString(lastScore);

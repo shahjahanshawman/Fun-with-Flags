@@ -51,11 +51,12 @@ public class CountryInfoFragment extends Fragment {
         }
     }
 
+    //sets the information about the country clicked on taking data from MainInfo
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.activity_country_info_fragment, container, false);
-        //int position = 0;
+
         newCountry = (MainInfo) getArguments().getSerializable("country");
 
         flag = v.findViewById(R.id.flag);
@@ -65,18 +66,6 @@ public class CountryInfoFragment extends Fragment {
         capital = v.findViewById(R.id.capital);
         population = v.findViewById(R.id.population);
 
-//        boolean wide = false;
-//        if(this.getArguments() != null) {
-//            wide = getArguments().getBoolean("wide",true);
-//        }
-//
-//        if(wide) {
-//            newCountry = Countries.getCountries().get(getArguments().getInt("position"));
-//        } else {
-//            Intent intent = getActivity().getIntent();
-//            position = intent.getIntExtra("position",0);
-//            newCountry = Countries.getCountries().get(position);
-//        }
 
         String url ="https://www.countries-ofthe-world.com/flags-normal/flag-of-";
         String forImage = newCountry.getName();
@@ -90,14 +79,13 @@ public class CountryInfoFragment extends Fragment {
         Glide.with(v).load(url).error(R.drawable.missing_flag).into(flag);
 
 
-        // flag.setImageResource(newCountry.getFlag());
 
         name.setText(newCountry.getName());
         currency.setText(newCountry.getCurrencies().get(0).getName());
         capital.setText(newCountry.getCapital());
 
         Float pop = newCountry.getPopulation();
-        population.setText(truncateNumber(pop));
+        population.setText(truncateNumber(pop));   //convert a float number to a round value
 
         search.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
@@ -116,26 +104,7 @@ public class CountryInfoFragment extends Fragment {
 
 
 
-//
-//    public String pop(long number, long divisor) {
-//        long truncate = (number * 10L + (divisor / 2L)) / divisor;
-//        float fraction = (float) truncate * 0.10F;
-//        return fraction;
-//
-//        long million = 1000000L;
-//        long billion = 1000000000L;
-//        long trillion = 1000000000000L;
-//        long number = Math.round(floatNumber);
-//        if ((number >= million) && (number < billion)) {
-//            float fraction = calculateFraction(number, million);
-//            return Float.toString(fraction) + "M";
-//        } else if ((number >= billion) && (number < trillion)) {
-//            float fraction = calculateFraction(number, billion);
-//            return Float.toString(fraction) + "B";
-//        }
-//        return Long.toString(number);
-//    }
-//    }
+//https://stackoverflow.com/questions/16604375/convert-number-to-million-and-billion-format-in-java-or-jsp
 
     public String truncateNumber(float floatNumber) {
         long million = 1000000L;

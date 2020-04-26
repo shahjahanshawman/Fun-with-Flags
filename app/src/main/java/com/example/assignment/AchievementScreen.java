@@ -44,6 +44,7 @@ public class AchievementScreen extends AppCompatActivity implements OnClickListe
     }
 
 
+    //gets the latest score for each level
     private class InsertScore extends AsyncTask<Void,Void, List<Achievement>> {
         @Override
         protected List<Achievement> doInBackground(Void... voids) {
@@ -58,6 +59,7 @@ public class AchievementScreen extends AppCompatActivity implements OnClickListe
 
             int count = strings.size();
 
+            //setText based on which levels have been played
             for(int i=0;i<count;i++){
                 if(strings.get(i).getLevel()==1){
                     first.setText(strings.get(i).getScore());
@@ -76,38 +78,7 @@ public class AchievementScreen extends AppCompatActivity implements OnClickListe
                 }
             }
 
-//            switch(count){
-//                case 1:
-//
-//                    Log.d(TAG, "1 " +strings.get(0).getScore());
-//                    first.setText(strings.get(0).getScore());
-//                    break;
-//                case 2:
-//                    Log.d(TAG, "2 " +strings.get(0).getScore()+" "+ strings.get(1).getScore());
-//                    first.setText(strings.get(0).getScore());
-//                    second.setText(strings.get(1).getScore());
-//                    break;
-//                case 3:
-//                    Log.d(TAG, "3 " +strings.get(0).getScore()+" "+ strings.get(1).getScore()+" "+ strings.get(2).getScore());
-//                    first.setText(strings.get(0).getScore());
-//                    second.setText(strings.get(1).getScore());
-//                    third.setText(strings.get(2).getScore());
-//                    break;
-//                case 4:
-//                    Log.d(TAG, "4 " +strings.get(0).getScore()+" "+ strings.get(1).getScore()+" "+ strings.get(2).getScore()+" "+ strings.get(3).getScore());
-//                    first.setText(strings.get(0).getScore());
-//                    second.setText(strings.get(1).getScore());
-//                    third.setText(strings.get(2).getScore());
-//
-//                    break;
-//                case 5:
-//                    Log.d(TAG, "5 " +strings.get(0).getScore()+" "+ strings.get(1).getScore()+" "+ strings.get(2).getScore()+" "+ strings.get(3).getScore()+" "+ strings.get(4).getScore());
-//                    first.setText(strings.get(0).getScore());
-//                    second.setText(strings.get(1).getScore());
-//                    third.setText(strings.get(2).getScore());
-//
-//                    break;
-//            }
+
 
 
 

@@ -14,6 +14,8 @@ import com.google.gson.Gson;
 public class CountryInfoActivity extends AppCompatActivity {
 
     MainInfo toDisplay;
+    //when using smaller screen learnScreen activates this activity and then goes to CountryInfoFragment
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +29,7 @@ public class CountryInfoActivity extends AppCompatActivity {
 
         }
 
-        //int position = intent.getIntExtra(learnScreen.EXTRA_MESSAGE,0);
+
 
         FragmentManager manager = getSupportFragmentManager();
         FragmentTransaction transaction = manager.beginTransaction();
@@ -37,6 +39,6 @@ public class CountryInfoActivity extends AppCompatActivity {
         fragment.setArguments(bundle);
         transaction.replace(R.id.scrollActivity, fragment);
         transaction.commit();
-        //getSupportFragmentManager().beginTransaction().replace(R.id.scrollActivity, fragment).commit();
+
     }
 }

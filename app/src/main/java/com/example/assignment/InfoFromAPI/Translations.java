@@ -4,6 +4,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 public class Translations {
 
+    //storing data about Translations obtained from API
 
         @SerializedName("de")
         @Expose

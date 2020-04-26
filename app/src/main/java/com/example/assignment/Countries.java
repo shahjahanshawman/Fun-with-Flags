@@ -48,13 +48,4 @@ public class Countries implements Serializable {
         this.level = level;
     }
 
-    public static ArrayList<Countries> getCountries() {
-        ArrayList<Countries> countries = new ArrayList<>();
-
-        //adds countries to list
-        for(int i=0;i<new CountryDatabase().answers.length;i++){
-            countries.add(new Countries(new CountryDatabase().answers[i], new CountryDatabase().flags[i], new CountryDatabase().level[i]));
-        }
-        return countries;
-    }
 }

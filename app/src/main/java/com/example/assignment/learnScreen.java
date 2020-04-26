@@ -42,7 +42,7 @@ public class learnScreen extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        new Task().execute();
+        new Task().execute();  //calling the API
 
         wideScreen = findViewById(R.id.countryInfo) != null;
 
@@ -79,6 +79,14 @@ public class learnScreen extends AppCompatActivity {
     }
 
 
+
+
+    ////https://stackoverflow.com/questions/42623437/parse-json-array-response-using-retrofit-gson
+    //https://medium.com/@dds861/json-parsing-using-retrofit-and-recycleview-2300d9fdcf15
+    //the api used returns a JSON array so used the above links to realise we have to use a list if...
+    //response starts with a JSON Array
+
+
     private class Task extends AsyncTask<Void,Integer, Integer> {
         @Override
         protected Integer doInBackground(Void... voids) {
@@ -95,21 +103,7 @@ public class learnScreen extends AppCompatActivity {
             }
 
             info=response.body();
-//            String toAdd = response.body().toString();
-//            Type listType = new TypeToken<List<MainInfo>>() {}.getType();
-            //info = Gson(toAdd, listType);
-//            for(int i=0;i<response.body().size();i++) {
-//                info
-//            }
-//            //String jsonString = response.body().toString();
-////            Type listType = new TypeToken<List<MainInfo>>() {}.getType();
-////            info = new Gson().fromJson(jsonString, listType);
-//            for(int i=0;i<response.body().size();i++){
-//                String jsonString = response.body().toString();
-//                Type listType = new TypeToken<List<MainInfo>>() {}.getType();
-//                info = new Gson().fromJson(jsonString, listType);
-//                //info.addAll(response.body().get());
-//            }
+
 
             return null;
 

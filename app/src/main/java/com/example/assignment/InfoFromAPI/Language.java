@@ -3,6 +3,7 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 public class Language {
 
+    //storing data about Language obtained from API
 
     @SerializedName("iso639_1")
     @Expose

@@ -20,7 +20,7 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
 
     private static final String TAG = "CountryAdapter";
 
-
+    //mCountries contain data from the API call
     private ArrayList<MainInfo> mCountries;
     private RecyclerViewClickListener mListener;
 
@@ -72,9 +72,12 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
         MainInfo countries = mCountries.get(position);
         holder.countryName.setText(countries.getName());
         holder.countryFlag.setImageResource(R.drawable.missing_flag);
-        //https://www.countries-ofthe-world.com/flags-normal/flag-of-Bosnia-Herzegovina.png
+
         String url ="https://www.countries-ofthe-world.com/flags-normal/flag-of-";
         String forImage = countries.getName();
+
+        //link from where flag images are being taken--->https://www.countries-ofthe-world.com/flags-of-the-world.html
+        //customising the country name according to link on the site
         if(forImage.contains(" ")){
             forImage=forImage.replace(" ", "-");
         }
@@ -83,10 +86,10 @@ public class CountryAdapter extends RecyclerView.Adapter<CountryAdapter.CountryV
         url= url+forImage+".png";
         Log.d(TAG, url+" in adapter");
         Glide.with(holder.itemView).load(url)
-                .error(R.drawable.missing_flag)
+                .error(R.drawable.missing_flag)        //if cannot load the image, load a missing_flag image
                         .into(holder.countryFlag);
 
-//        holder.countryFlag.setImageResource(countries.getFlag());
+
     }
 
 

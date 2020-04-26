@@ -7,6 +7,7 @@ import java.util.List;
 
 public class RegionalBloc {
 
+     //storing data about RegionalBloc obtained from API
     @SerializedName("acronym")
     @Expose
     private String acronym;
