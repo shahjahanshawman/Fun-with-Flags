@@ -54,35 +54,52 @@
         app:layout_constraintTop_toTopOf="@+id/playBtn" />
 
     <Button
-        android:id="@+id/helpBtn"
-        android:layout_width="257dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="140dp"
-        android:background="#4097DC"
-        android:fontFamily="@font/comfortaa"
-        android:gravity="center"
-        android:text="Help"
-        android:textColor="#FFFFFF"
-        android:textSize="45sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toEndOf="@+id/achBtn"
-        app:layout_constraintTop_toBottomOf="@+id/playBtn" />
-
-    <Button
         android:id="@+id/achBtn"
         android:layout_width="257dp"
         android:layout_height="79dp"
-        android:layout_marginStart="128dp"
-        android:layout_marginTop="140dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="68dp"
         android:background="#4097DC"
         android:fontFamily="@font/comfortaa"
         android:gravity="center"
         android:text="Results"
         android:textColor="#FFFFFF"
-        android:textSize="45sp"
+        android:textSize="35sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/playBtn" />
+
+    <Button
+        android:id="@+id/notes"
+        android:layout_width="257dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="20dp"
+        android:background="#4097DC"
+        android:fontFamily="@font/comfortaa"
+        android:gravity="center"
+        android:text="Take Notes"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/helpBtn"
+        app:layout_constraintTop_toTopOf="@+id/helpBtn" />
+
+    <Button
+        android:id="@+id/helpBtn"
+        android:layout_width="257dp"
+        android:layout_height="79dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="68dp"
+        android:background="#4097DC"
+        android:fontFamily="@font/comfortaa"
+        android:gravity="center"
+        android:text="Help"
+        android:textColor="#FFFFFF"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toEndOf="@+id/achBtn"
         app:layout_constraintTop_toBottomOf="@+id/playBtn" />
 
     <TextView
@@ -105,19 +122,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/notes"
-        android:layout_width="257dp"
-        android:layout_height="79dp"
-        android:layout_marginStart="20dp"
-        android:background="#4097DC"
-        android:fontFamily="@font/comfortaa"
-        android:text="Take Notes"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.082"
-        app:layout_constraintStart_toEndOf="@+id/helpBtn"
-        app:layout_constraintTop_toTopOf="@+id/helpBtn" />
 </androidx.constraintlayout.widget.ConstraintLayout>
