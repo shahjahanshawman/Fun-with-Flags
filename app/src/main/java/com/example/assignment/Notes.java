@@ -20,6 +20,8 @@ import androidx.appcompat.app.AlertDialog;
 import java.util.ArrayList;
 import java.util.HashSet;
 
+
+//https://youtu.be/48EB4HeP1kI <-- used this video to make the notes section. not completely functional
 public class Notes extends MainActivity {
 
     static ArrayAdapter arrayAdapter;
@@ -60,11 +62,12 @@ public class Notes extends MainActivity {
 
         Log.d(TAG, "onCreate: starts");
 
-        ListView listView = (ListView) findViewById(R.id.notelistView);
+        ListView listView = (ListView) findViewById(R.id.noteListView);
 
-        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("Fun with Flags", Context.MODE_PRIVATE);
+        SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.example.assignment", Context.MODE_PRIVATE);
 
         HashSet<String> set = (HashSet<String>) sharedPreferences.getStringSet("notes",null);
+
 
         if (set==null){
             notes.add("Example note");
@@ -100,7 +103,7 @@ public class Notes extends MainActivity {
                                 notes.remove(itemToDelete);
                                 arrayAdapter.notifyDataSetChanged();
 
-                                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("unsw.Infs3634.greenBook", Context.MODE_PRIVATE);
+                                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.example.assignment", Context.MODE_PRIVATE);
 
                                 HashSet<String> set = new HashSet<>(Notes.notes);
                                 sharedPreferences.edit().putStringSet("notes",set).apply();

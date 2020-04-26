@@ -43,7 +43,7 @@ public class NoteEditor extends AppCompatActivity {
                 Notes.notes.set(noteId,String.valueOf(s));
                 Notes.arrayAdapter.notifyDataSetChanged();
 
-                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("Flag the Flags", Context.MODE_PRIVATE);
+                SharedPreferences sharedPreferences = getApplicationContext().getSharedPreferences("com.example.assignment", Context.MODE_PRIVATE);
 
                 HashSet<String> set = new HashSet<>(Notes.notes);
                 sharedPreferences.edit().putStringSet("notes",set).apply();
