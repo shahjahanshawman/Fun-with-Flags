@@ -102,7 +102,7 @@ public class learnScreen extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            info=response.body();
+            info = response.body();
 
 
             return null;

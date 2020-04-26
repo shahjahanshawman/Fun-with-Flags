@@ -87,7 +87,7 @@
         android:id="@+id/L2result"
         android:layout_width="272dp"
         android:layout_height="46dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="25dp"
         android:layout_marginBottom="10dp"
         android:fontFamily="@font/comfortaa"
         android:textAlignment="center"

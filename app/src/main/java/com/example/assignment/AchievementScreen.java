@@ -49,7 +49,7 @@ public class AchievementScreen extends AppCompatActivity implements OnClickListe
         @Override
         protected List<Achievement> doInBackground(Void... voids) {
 
-            List<Achievement> newList =achievementDatabase.achievementDAO().getScores();
+            List<Achievement> newList = achievementDatabase.achievementDAO().getScores();
             return newList;
         }
 
@@ -77,12 +77,6 @@ public class AchievementScreen extends AppCompatActivity implements OnClickListe
                     third.setText(strings.get(i).getScore());
                 }
             }
-
-
-
-
-
-
         }
     }
 }
