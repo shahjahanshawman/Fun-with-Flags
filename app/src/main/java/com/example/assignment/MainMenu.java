@@ -53,7 +53,7 @@ public class MainMenu extends AppCompatActivity implements View.OnClickListener 
                 break;
 
             case R.id.achBtn:
-                Intent achIntent = new Intent(this, AchievementScreen.class);
+                Intent achIntent = new Intent(this, ResultsScreen.class);
                 startActivity(achIntent);
                 break;
 

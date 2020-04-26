@@ -22,7 +22,7 @@ public class Level2Quiz extends AppCompatActivity {
     private CountryAdapter mCountryAdapter;
     List<Countries> countries;
     private Random randomGenerator=  new Random();
-    private AchievementDatabase achievementDatabase;
+    private ResultsDatabase resultsDatabase;
     ImageView fg;
     Button answer1, answer2, answer3, answer4;
     TextView result;
@@ -49,7 +49,7 @@ public class Level2Quiz extends AppCompatActivity {
         //shuffles the list
         Collections.shuffle(countries);
 
-        achievementDatabase = Room.databaseBuilder(getApplicationContext(), AchievementDatabase.class, "myDB")
+        resultsDatabase = Room.databaseBuilder(getApplicationContext(), ResultsDatabase.class, "myDB")
                 .build();
 
         fg = findViewById(R.id.L2flag);
@@ -82,7 +82,7 @@ public class Level2Quiz extends AppCompatActivity {
 
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
-                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        Intent seeScore = new Intent(getApplicationContext(), ResultsScreen.class);
                         startActivity(seeScore);
 
 
@@ -101,7 +101,7 @@ public class Level2Quiz extends AppCompatActivity {
 
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
-                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        Intent seeScore = new Intent(getApplicationContext(), ResultsScreen.class);
                         startActivity(seeScore);
 
 
@@ -128,7 +128,7 @@ public class Level2Quiz extends AppCompatActivity {
                         result.setTextColor(0xFF43D110);
 
                         new insertScore().execute();
-                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        Intent seeScore = new Intent(getApplicationContext(), ResultsScreen.class);
                         startActivity(seeScore);
 
                     }
@@ -144,7 +144,7 @@ public class Level2Quiz extends AppCompatActivity {
 
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
-                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        Intent seeScore = new Intent(getApplicationContext(), ResultsScreen.class);
                         startActivity(seeScore);
 
 
@@ -173,7 +173,7 @@ public class Level2Quiz extends AppCompatActivity {
                         result.setTextColor(0xFF43D110);
 
                         new insertScore().execute();
-                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        Intent seeScore = new Intent(getApplicationContext(), ResultsScreen.class);
                         startActivity(seeScore);
                     }
                 } else {
@@ -188,7 +188,7 @@ public class Level2Quiz extends AppCompatActivity {
 
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
-                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        Intent seeScore = new Intent(getApplicationContext(), ResultsScreen.class);
                         startActivity(seeScore);
 
 
@@ -216,7 +216,7 @@ public class Level2Quiz extends AppCompatActivity {
                         result.setText("Game Over!");
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
-                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        Intent seeScore = new Intent(getApplicationContext(), ResultsScreen.class);
                         startActivity(seeScore);
                     }
                 } else {
@@ -231,7 +231,7 @@ public class Level2Quiz extends AppCompatActivity {
 
                         result.setTextColor(0xFF43D110);
                         new insertScore().execute();
-                        Intent seeScore = new Intent(getApplicationContext(), AchievementScreen.class);
+                        Intent seeScore = new Intent(getApplicationContext(), ResultsScreen.class);
                         startActivity(seeScore);
 
 
@@ -357,8 +357,8 @@ public class Level2Quiz extends AppCompatActivity {
             String score = Integer.toString(lastScore);
             score = score + "/20";
             Results toInsert = new Results(score,2);
-            achievementDatabase.achievementDAO().deleteScores(2);
-            achievementDatabase.achievementDAO().insert(toInsert);
+            resultsDatabase.resultsDAO().deleteScores(2);
+            resultsDatabase.resultsDAO().insert(toInsert);
 
             return null;
         }
