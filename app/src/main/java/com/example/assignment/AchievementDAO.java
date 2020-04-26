@@ -1,7 +1,6 @@
 package com.example.assignment;
 
 import androidx.room.Dao;
-import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
 
@@ -10,16 +9,16 @@ import java.util.List;
 @Dao
 public interface AchievementDAO {
 
-    @Query("Select * FROM Achievement")
-    List<Achievement> getScores();
+    @Query("Select * FROM Results")
+    List<Results> getScores();
 
-    @Query("Select Count(*) FROM Achievement")
+    @Query("Select Count(*) FROM Results")
     int getCount();
 
     @Insert
-    void insert(Achievement scores);
+    void insert(Results scores);
 
-    @Query("Delete  From  Achievement Where level =:level")
+    @Query("Delete  From  Results Where level =:level")
     void deleteScores(int level);
 
 }

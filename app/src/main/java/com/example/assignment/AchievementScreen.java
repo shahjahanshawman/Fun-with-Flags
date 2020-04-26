@@ -6,7 +6,6 @@ import androidx.room.Room;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -23,7 +22,7 @@ public class AchievementScreen extends AppCompatActivity implements OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_achievement_screen);
+        setContentView(R.layout.activity_results_screen);
 
         achievementDatabase = Room.databaseBuilder(getApplicationContext(), AchievementDatabase.class, "myDB")
                 .build();
@@ -39,22 +38,22 @@ public class AchievementScreen extends AppCompatActivity implements OnClickListe
 
     @Override
     public void onClick(View v) {
-        Intent goHome = new Intent(this,PlayScreen.class );
+        Intent goHome = new Intent(this, MainMenu.class );
         startActivity(goHome);
     }
 
 
     //gets the latest score for each level
-    private class InsertScore extends AsyncTask<Void,Void, List<Achievement>> {
+    private class InsertScore extends AsyncTask<Void,Void, List<Results>> {
         @Override
-        protected List<Achievement> doInBackground(Void... voids) {
+        protected List<Results> doInBackground(Void... voids) {
 
-            List<Achievement> newList =achievementDatabase.achievementDAO().getScores();
+            List<Results> newList =achievementDatabase.achievementDAO().getScores();
             return newList;
         }
 
         @Override
-        protected void onPostExecute(List<Achievement> strings) {
+        protected void onPostExecute(List<Results> strings) {
             super.onPostExecute(strings);
 
             int count = strings.size();

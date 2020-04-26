@@ -8,22 +8,11 @@
     tools:context=".AchievementScreen">
 
     <TextView
-        android:id="@+id/p3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/comfortaa"
-        android:textColor="#FFFFFF"
-        android:textSize="30sp"
-        app:layout_constraintStart_toStartOf="@+id/p1"
-        app:layout_constraintTop_toTopOf="@+id/g3"
-        tools:text="5/10" />
-
-    <TextView
         android:id="@+id/Results"
         android:layout_width="191dp"
         android:layout_height="71dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginStart="72dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="@font/comfortaa"
         android:text="Results"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -88,7 +77,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="68dp"
         android:fontFamily="@font/comfortaa"
-        android:text="9/10"
+        android:text="0/20"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintStart_toEndOf="@+id/g1"
@@ -99,11 +88,22 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/comfortaa"
-        android:text="3/10"
+        android:text="0/20"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
         app:layout_constraintStart_toStartOf="@+id/p1"
         app:layout_constraintTop_toTopOf="@+id/g2" />
+
+    <TextView
+        android:id="@+id/p3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/comfortaa"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="@+id/p1"
+        app:layout_constraintTop_toTopOf="@+id/g3"
+        tools:text="0/20" />
 
     <Button
         android:id="@+id/back"

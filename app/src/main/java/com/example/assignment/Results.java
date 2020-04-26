@@ -7,7 +7,7 @@ import androidx.room.PrimaryKey;
 import java.util.List;
 
 @Entity
-public class Achievement {
+public class Results {
 
     //rows in the database
     @NonNull
@@ -17,7 +17,7 @@ public class Achievement {
     int level;
 
 
-    public Achievement(String score, int level){
+    public Results(String score, int level){
 
         this.score=score;
         this.level = level;

@@ -3,7 +3,6 @@ package com.example.assignment;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.CountDownTimer;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -29,7 +28,7 @@ public class Level1Quiz extends AppCompatActivity {
     TextView result;
     int turn = 1;
     int lastScore;
-    List<Achievement> scores;
+    List<Results> scores;
 
 //https://www.youtube.com/watch?v=DbkBB3jga_g <----- video used to set the quiz
 
@@ -357,7 +356,7 @@ public class Level1Quiz extends AppCompatActivity {
         protected Integer doInBackground(Void... voids) {
             String score = Integer.toString(lastScore);
             score = score + "/20";
-            Achievement toInsert = new Achievement(score,1);
+            Results toInsert = new Results(score,1);
             achievementDatabase.achievementDAO().deleteScores(1);
             achievementDatabase.achievementDAO().insert(toInsert);
 

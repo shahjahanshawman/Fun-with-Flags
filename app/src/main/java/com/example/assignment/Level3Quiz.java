@@ -28,7 +28,7 @@ public class Level3Quiz extends AppCompatActivity {
     TextView result;
     int turn = 1;
     int lastScore;
-    List<Achievement> scores;
+    List<Results> scores;
 
     //everything same as Level1Quiz except for level 3 countries
     @Override
@@ -343,29 +343,23 @@ public class Level3Quiz extends AppCompatActivity {
                 answer3.setText(countries.get(thirdButton).getAnswers());
                 answer1.setText(countries.get(fourthButton).getAnswers());
                 break;
-
         }
     }
 
-
     private class insertScore  extends AsyncTask<Void,Integer,Integer> {
-
 
         @Override
         protected Integer doInBackground(Void... voids) {
             String score = Integer.toString(lastScore);
             score = score + "/20";
-            Achievement toInsert = new Achievement(score,3);
+            Results toInsert = new Results(score,3);
             achievementDatabase.achievementDAO().deleteScores(3);
             achievementDatabase.achievementDAO().insert(toInsert);
-
-
             return null;
         }
 
         @Override
         protected void onPostExecute(Integer integer) {
-
             super.onPostExecute(integer);
         }
     }

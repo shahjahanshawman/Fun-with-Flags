@@ -76,7 +76,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="@font/comfortaa"
-        android:text="3/10"
+        android:text="0/20"
         android:textColor="#FFFFFF"
         android:textSize="70sp"
         app:layout_constraintStart_toStartOf="@+id/p1"
@@ -88,7 +88,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:fontFamily="@font/comfortaa"
-        android:text="9/10"
+        android:text="0/20"
         android:textColor="#FFFFFF"
         android:textSize="70sp"
         app:layout_constraintStart_toEndOf="@+id/g1"
@@ -98,12 +98,16 @@
         android:id="@+id/p3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="202dp"
+        android:layout_marginBottom="449dp"
         android:fontFamily="@font/comfortaa"
         android:textColor="#FFFFFF"
         android:textSize="70sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/p1"
         app:layout_constraintTop_toTopOf="@+id/g3"
-        tools:text="5/10" />
+        tools:text="0/20" />
 
     <Button
         android:id="@+id/back"
